@@ -1,0 +1,1118 @@
+HARDDX PROJECT COMPLETE REPORT
+==============================
+
+Project name:
+HARDDX - Intelligent AI Chatbot for Computer Hardware Diagnosis and Troubleshooting
+
+Purpose:
+This project is a hybrid hardware-diagnosis chatbot that takes a user's text
+description of a computer problem, optionally combines it with an image-based
+analysis result from Gemini Vision, then returns a fault category, likely
+causes, troubleshooting steps, and a guided multi-turn repair flow.
+
+The system is built as a Flask web app with a browser-based chat UI, a
+rule-based knowledge base, a supervised text classifier, and a persistence
+layer for dialogue state and conversation logging.
+
+
+1. High-Level Project Summary
+-----------------------------
+
+HARDDX is designed to help users diagnose common computer hardware issues such
+as power supply failures, overheating, RAM faults, storage failures, display
+or GPU problems, and peripheral issues.
+
+The application supports:
+- Text-only diagnosis.
+- Image-assisted diagnosis using Gemini Vision from the browser.
+- Multi-turn clarifying questions before a diagnosis is finalized.
+- Step-by-step troubleshooting guidance after diagnosis.
+- Session persistence for dialogue state.
+- Conversation logging in SQLite or MySQL.
+
+The project structure shows it is intended as both an academic/demo system and
+a practical diagnostic assistant.
+
+
+2. Core Architecture
+--------------------
+
+The main pipeline is:
+
+User message
+ -> NLP preprocessing
+ -> ML classifier + rule-based keyword matching
+ -> confidence fusion
+ -> diagnosis
+ -> guided troubleshooting
+
+Main components:
+- app.py
+  Flask application entry point and API routes.
+- dialogue_manager.py
+  Multi-turn state machine that handles clarifying, diagnosis, and guided
+  troubleshooting stages.
+- inference_engine.py
+  Hybrid diagnostic engine that combines the supervised model and knowledge
+  base keyword matching.
+- train_model.py
+  Trains the supervised text classifier.
+- database.py
+  Stores conversations and dialogue state.
+- utils/nlp_preprocessor.py
+  NLP preprocessing and entity extraction.
+- templates/index.html
+  Chat UI.
+- static/js/chat.js
+  Front-end chat behavior.
+- static/js/vision.js
+  Client-side Gemini Vision image analysis.
+- static/css/style.css
+  Console-style UI styling.
+
+
+3. Application Flow
+-------------------
+
+3.1 Startup
+- Flask app starts in app.py.
+- database.init_db() ensures the database tables exist.
+- DialogueManager is instantiated, which in turn loads:
+  - the trained ML model from models/intent_classifier.pkl
+  - the label list from models/label_encoder.pkl
+  - the model name from models/model_name.pkl
+  - the knowledge base from data/knowledge_base.json
+
+3.2 User interaction
+- The user types a problem into the chat UI.
+- The front end can optionally attach an image.
+- If an image is attached, static/js/vision.js may analyze it in the browser
+  with Gemini Vision and produce a description plus suspected category.
+- The browser sends the message and optional image_finding to /api/chat.
+- The server passes the request to DialogueManager.
+- DialogueManager decides whether to:
+  - greet conversationally,
+  - ask a clarifying question,
+  - present a diagnosis,
+  - move to the next guided step,
+  - resolve the conversation, or
+  - escalate to professional repair advice.
+
+3.3 State handling
+- Session state is stored per browser session in the dialogue_sessions table.
+- This allows the app to remember whether it is in idle, clarifying,
+  diagnosed, or guiding mode.
+
+
+4. Front-End Chat UI
+--------------------
+
+The UI is a hardware-console style interface.
+
+Visible pieces:
+- Top bar with HARDDX branding.
+- Vision key settings button.
+- Sidebar with diagnostic methods and suggested prompts.
+- Main console chat feed.
+- Composer area for typing and file upload.
+- Image preview bar for uploaded images.
+- Modal for entering a Gemini API key.
+
+Front-end behavior in static/js/chat.js:
+- Appends user and assistant messages to the feed.
+- Shows typing indicators while the backend or image analysis is working.
+- Handles image preview and removal.
+- Sends chat history along with the current message.
+- Stores visible session history in localStorage.
+- Renders a session-history panel in the sidebar.
+- Allows the settings modal to open, save, close on overlay click, and close
+  with Escape.
+
+
+5. Image Diagnosis
+------------------
+
+Image diagnosis is client-side only.
+
+How it works:
+- The user clicks the attach button and selects an image.
+- static/js/vision.js reads the file in the browser.
+- The image is sent directly to Gemini Vision from the browser using the
+  user's own Gemini API key.
+- The response is parsed into:
+  - description
+  - suspected_category
+- That result is merged with the text diagnosis path on the server.
+
+Important detail:
+- The server does not call Gemini directly.
+- The user's API key is stored only in browser localStorage.
+
+Supported suspected image categories in vision.js:
+- power_supply_failure
+- overheating
+- ram_failure
+- storage_failure
+- display_gpu_failure
+- peripheral_issue
+
+
+6. Dialogue Manager
+-------------------
+
+dialogue_manager.py implements the multi-turn conversation logic.
+
+Key states:
+- idle
+- clarifying
+- diagnosed
+- guiding
+
+Behavior:
+- On a fresh issue, it starts diagnosis.
+- If the knowledge base defines clarifying questions, it asks up to two.
+- Answers are added back into the text and re-run through diagnosis.
+- After a diagnosis, it presents the first troubleshooting step.
+- During guided steps:
+  - "yes" or equivalent resolves the conversation.
+  - "no" or equivalent moves to the next step.
+  - Once steps are exhausted, the user is told to see a technician.
+
+Small-talk protection:
+- Messages like hi, hello, hey, thanks, and thank you are treated as
+  conversational and should not trigger diagnosis.
+
+History context:
+- The dialogue manager can receive conversation history.
+- It folds prior turns into the diagnostic context when appropriate.
+
+
+7. Hybrid Inference Engine
+--------------------------
+
+inference_engine.py is the central reasoning layer.
+
+It combines:
+1. Supervised ML classification.
+2. Rule-based keyword matching.
+3. Confidence fusion.
+
+7.1 Rule-based matching
+- Each knowledge-base category has keywords.
+- The engine counts keyword hits in the user message.
+- The best keyword match becomes the rule category.
+
+7.2 ML prediction
+- Text is preprocessed with utils/nlp_preprocessor.py.
+- A TF-IDF representation is created.
+- The classifier predicts a fault category.
+- Confidence is estimated from either:
+  - predict_proba for Naive Bayes, or
+  - softmax-normalized decision function scores for Linear SVM.
+- A vocabulary-overlap guard prevents trusting totally unrelated text.
+
+7.3 Fusion logic
+- If ML and rule agree, confidence is boosted.
+- If rule evidence is strong, it overrides a weaker ML guess.
+- If only ML has signal, it can still return a prediction.
+- If no signal is strong enough, the engine returns no_match.
+
+7.4 Conversational categories
+- Greeting and thanks are treated as conversational categories.
+- This prevents greetings from being diagnosed as hardware faults.
+
+
+8. Model Training
+-----------------
+
+The supervised model is trained in train_model.py.
+
+Training data:
+- data/hardware_faults_dataset.csv
+
+Training label set:
+- display_gpu_failure
+- greeting
+- overheating
+- peripheral_issue
+- power_supply_failure
+- ram_failure
+- storage_failure
+- thanks
+
+Training pipeline:
+- Text preprocessing with utils/nlp_preprocessor.preprocess
+- TF-IDF vectorization with n-grams 1 to 2
+- Two candidate classifiers:
+  - Multinomial Naive Bayes
+  - Linear SVM (LinearSVC)
+
+Evaluation:
+- 80/20 train-test split
+- 4-fold cross-validation on the training split
+- Accuracy and classification report printed for both candidates
+
+Selection rule:
+- The model with the best mean CV accuracy is selected.
+- That model is then refit on the full dataset.
+- The trained pipeline is saved to models/intent_classifier.pkl
+- The sorted label list is saved to models/label_encoder.pkl
+- The chosen model name is saved to models/model_name.pkl
+
+
+9. Trained Model Results
+------------------------
+
+Based on the contents of train.txt, the training run produced:
+
+Naive Bayes:
+- CV accuracy: 0.588 +/- 0.041
+- Held-out test accuracy: 0.700
+
+Linear SVM:
+- CV accuracy: 0.650 +/- 0.061
+- Held-out test accuracy: 0.750
+
+Best selected model:
+- linear_svm
+- CV accuracy: 0.650
+
+Interpretation:
+- Linear SVM outperformed Naive Bayes on both cross-validation and the held-out
+  test set.
+- The dataset is small, so class-level metrics are uneven.
+- Some classes such as greeting and thanks performed poorly in Naive Bayes but
+  better in Linear SVM.
+- The hybrid architecture is important because the rule-based knowledge base
+  compensates for the limited dataset.
+
+
+10. Classification Report Summary from train.txt
+-----------------------------------------------
+
+Naive Bayes test performance highlights:
+- display_gpu_failure: precision 0.75, recall 1.00, f1 0.86
+- overheating: precision 1.00, recall 0.67, f1 0.80
+- peripheral_issue: precision 0.40, recall 0.67, f1 0.50
+- power_supply_failure: precision 1.00, recall 1.00, f1 1.00
+- ram_failure: precision 0.75, recall 1.00, f1 0.86
+- storage_failure: precision 0.50, recall 0.33, f1 0.40
+- greeting: precision 0.00, recall 0.00, f1 0.00
+- thanks: precision 0.00, recall 0.00, f1 0.00
+
+Linear SVM test performance highlights:
+- display_gpu_failure: precision 1.00, recall 1.00, f1 1.00
+- overheating: precision 0.67, recall 0.67, f1 0.67
+- peripheral_issue: precision 0.50, recall 0.67, f1 0.57
+- power_supply_failure: precision 1.00, recall 1.00, f1 1.00
+- ram_failure: precision 0.75, recall 1.00, f1 0.86
+- storage_failure: precision 0.50, recall 0.33, f1 0.40
+- greeting: precision 0.00, recall 0.00, f1 0.00
+- thanks: precision 1.00, recall 1.00, f1 1.00
+
+Important note:
+- The dataset is clearly small and imbalanced in places, which is why the
+  hybrid rule-based layer is necessary.
+
+
+11. Knowledge Base
+------------------
+
+The chatbot relies on data/knowledge_base.json for deterministic support.
+
+Each category in the knowledge base can include:
+- label
+- keywords
+- causes
+- clarifying_questions
+- solution_steps
+- severity
+- confidence_base
+
+This file is what powers:
+- keyword matching
+- clarifying questions
+- final troubleshooting steps
+- severity labels
+
+
+12. Data and External Datasets
+------------------------------
+
+The project includes a dataset ingestion pipeline for additional Kaggle data.
+
+External folders:
+- data/external/computer_hardware
+- data/external/electronic_components
+- data/external/electronic_parts
+- data/external/software_reliability
+- data/external/software_defects
+
+Observed ingestion summary from train.txt:
+- 559 candidate text rows were written to data/hardware_faults_dataset_audit.csv
+- 11,274 image paths were written to data/external_image_manifest.csv
+
+Key observations:
+- Many hardware CSVs are spec tables, not symptom narratives.
+- Those were skipped because they do not map naturally to user complaint text.
+- Many image folders were cataloged as candidate labels, but the labels are
+  structural guesses and need review.
+
+
+13. Database Layer
+------------------
+
+database.py supports two backends:
+- SQLite by default
+- MySQL when DB_ENGINE=mysql is set
+
+Tables:
+- conversations
+- feedback
+- dialogue_sessions
+
+Conversation logging records:
+- session_id
+- user_message
+- fault_category
+- confidence
+- method
+- source
+- timestamp
+
+Dialogue state logging makes the chat multi-turn and persistent within a session.
+
+
+14. Web Application Routes
+--------------------------
+
+Defined in app.py:
+- GET /
+  Main chat UI
+- POST /api/chat
+  Accepts a message, optional image_finding, and conversation history
+- POST /api/feedback
+  Records helpful/not helpful feedback
+- POST /api/reset
+  Clears the dialogue state for the session
+- GET /api/history
+  Returns recent conversation log
+- GET /api/stats
+  Returns fault frequency counts
+
+
+15. Project Files and Their Roles
+---------------------------------
+
+- app.py
+  Flask app and HTTP API.
+- dialogue_manager.py
+  Session-based conversation logic.
+- inference_engine.py
+  Hybrid ML + rule-based diagnosis.
+- train_model.py
+  Training script for the classifier.
+- database.py
+  Persistence and logging.
+- utils/nlp_preprocessor.py
+  Text normalization and entity extraction.
+- static/js/chat.js
+  Chat UI behavior and local session history.
+- static/js/vision.js
+  Client-side Gemini Vision image analysis.
+- static/css/style.css
+  Visual styling for the console UI.
+- templates/index.html
+  Main HTML layout and templates.
+- README.md
+  Documentation and setup instructions.
+- train.txt
+  Output log of training and dataset ingestion.
+
+
+16. Content of train.txt
+-----------------------
+
+Below is the content of train.txt as captured from the project:
+
+============================================================
+MODEL TRAINING & CROSS-VALIDATION
+============================================================
+
+[naive_bayes] CV accuracy: 0.588 (+/- 0.041)
+[naive_bayes] Held-out test accuracy: 0.700
+                      precision    recall  f1-score   support
+
+ display_gpu_failure       0.75      1.00      0.86         3
+            greeting       0.00      0.00      0.00         1
+         overheating       1.00      0.67      0.80         3
+    peripheral_issue       0.40      0.67      0.50         3
+power_supply_failure       1.00      1.00      1.00         3
+         ram_failure       0.75      1.00      0.86         3
+     storage_failure       0.50      0.33      0.40         3
+              thanks       0.00      0.00      0.00         1
+
+            accuracy                           0.70        20
+           macro avg       0.55      0.58      0.55        20
+        weighted avg       0.66      0.70      0.66        20
+
+
+[linear_svm] CV accuracy: 0.650 (+/- 0.061)
+[linear_svm] Held-out test accuracy: 0.750
+                      precision    recall  f1-score   support
+
+ display_gpu_failure       1.00      1.00      1.00         3
+            greeting       0.00      0.00      0.00         1
+         overheating       0.67      0.67      0.67         3
+    peripheral_issue       0.50      0.67      0.57         3
+power_supply_failure       1.00      1.00      1.00         3
+         ram_failure       0.75      1.00      0.86         3
+     storage_failure       0.50      0.33      0.40         3
+              thanks       1.00      1.00      1.00         1
+
+            accuracy                           0.75        20
+           macro avg       0.68      0.71      0.69        20
+        weighted avg       0.71      0.75      0.72        20
+
+============================================================
+BEST MODEL SELECTED: linear_svm (CV accuracy=0.650)
+============================================================
+
+Saved trained model -> C:\laragon\www\stylistv2\models\intent_classifier.pkl
+
+
+
+
+
+PS C:\laragon\www\stylistv2> py ingest_external_datasets.py
+
+=================================================================
+DATASET FOLDER: computer_hardware  (General Computer Hardware Dataset (Dilshaan Sandhu))
+=================================================================
+  Found 10 CSV file(s), 0 folder(s) containing images.
+
+  --- CSV: computer_hardware\CPUCoolerData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Supported Sockets', 'Height', 'TDP', '80mm Fans', '92mm Fans', '120mm Fans', '140mm Fans', '200mm Fans', 'Additional Fan Support', 'Product Page']
+    Rows (sampled up to 2000): 767
+    Sample row: {'Name': 'be quiet! Dark Rock 4 - 135mm', 'Price': '$64.54 USD', 'Producer': 'be quiet!', 'MPN': 'BK021', 'EAN': 4260052186251, 'UPC': 4260052186251.0, 'Supported Sockets': '1150, 1151, 1155, 1156, 1366, 2011, 2011-V3, 2066, 754, 775, 939, 940, AM2, AM3, AM3+, AM4, FM1, FM2, FM2+, AM5, 1700', 'Height': '159 mm', 'TDP': '200 W', '80mm Fans': 0, '92mm Fans': 0, '120mm Fans': 0, '140mm Fans': 0, '200mm Fans': 0, 'Additional Fan Support': True, 'Product Page': 'https://www.amazon.ca/dp/B07BYP9S95?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 73 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\CPUData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Base Clock', 'Turbo Clock', 'Unlocked Multiplier', 'Cores', 'Threads', 'TDP', 'Socket', 'Integrated GPU', 'Product Page']
+    Rows (sampled up to 2000): 328
+    Sample row: {'Name': 'AMD Ryzen 5 5600X', 'Price': '$158.86 USD', 'Producer': 'AMD', 'MPN': '100-100000065BOX', 'EAN': 730143312042, 'UPC': nan, 'Base Clock': '3.7 GHz', 'Turbo Clock': '4.6 GHz', 'Unlocked Multiplier': True, 'Cores': 6, 'Threads': 12, 'TDP': '65 W', 'Socket': 'AM4', 'Integrated GPU': 'False', 'Product Page': 'https://www.amazon.ca/dp/B08166SLDF?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 0 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\CaseData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Width', 'Depth', 'Height', 'Motherboard', 'Power Supply', 'Supported GPU Length', 'Supported CPU Cooler Height', '80mm Fans', '120mm Fans', '140mm Fans', '200mm Fans', '120mm Radiator Support', '140mm Radiator Support', '240mm Radiator Support', '280mm Radiator Support', '360mm Radiator Support', 'Disk 2.5"', 'Disk 3.5"', 'Disk 2.5"/3.5"', 'Disk 5.25"', 'Primary Color(s)', 'Window', 'Dust Filter', 'Cable Management', 'Noise Isolation', 'Product Page']
+    Rows (sampled up to 2000): 1358
+    Sample row: {'Name': 'Corsair 4000D Airflow Tempered Glass Midi-Tower - white Window', 'Price': '$87.03 USD', 'Producer': 'Corsair', 'MPN': 'CC-9011201-WW', 'EAN': 840006621928, 'UPC': nan, 'Width': '230 mm', 'Depth': '453 mm', 'Height': '466 mm', 'Motherboard': 'E-ATX', 'Power Supply': 'ATX', 'Supported GPU Length': '360 mm', 'Supported CPU Cooler Height': '170 mm', '80mm Fans': '0/0', '120mm Fans': '2/6', '140mm Fans': '0/4', '200mm Fans': '0/0', '120mm Radiator Support': 1.0, '140mm Radiator Support': '0', '240mm Radiator Support': 0.0, '280mm Radiator Support': 1.0, '360mm Radiator Support': 1.0, 'Disk 2.5"': '2', 'Disk 3.5"': 0, 'Disk 2.5"/3.5"': 0, 'Disk 5.25"': nan, 'Primary Color(s)': 'white', 'Window': True, 'Dust Filter': True, 'Cable Management': True, 'Noise Isolation': False, 'Product Page': 'https://www.amazon.ca/dp/B08C74694Z?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 115 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\GPUData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Length', 'Slots', '8-Pin Connectors', '6-Pin Connectors', 'HDMI', 'DisplayPort', 'DVI', 'VGA', 'Boost Clock', 'Vram', 'Memory Clock', 'TDP', 'Product Page']
+    Rows (sampled up to 2000): 1417
+    Sample row: {'Name': 'Sapphire Pulse Radeon RX 6600 Gaming', 'Price': nan, 'Producer': 'SAPPHIRE', 'MPN': '11310-01-20G', 'EAN': 4895106290662, 'UPC': nan, 'Length': '193 mm', 'Slots': 2.5, '8-Pin Connectors': 1, '6-Pin Connectors': 0, 'HDMI': 1, 'DisplayPort': 3, 'DVI': 0, 'VGA': '0', 'Boost Clock': '2044 MHz', 'Vram': '8 GB', 'Memory Clock': nan, 'TDP': '132 W', 'Product Page': nan}
+    -> Mapped 27 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\HDDData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Form Factor', 'Size', 'RPM', 'Cache', 'Product Page']
+    Rows (sampled up to 2000): 247
+    Sample row: {'Name': 'HGST Deskstar NAS 0S03661', 'Price': nan, 'Producer': 'HGST', 'MPN': '0S03661', 'EAN': 705487193794, 'UPC': nan, 'Form Factor': nan, 'Size': '3 TB', 'RPM': 7200.0, 'Cache': nan, 'Product Page': nan}
+    -> Mapped 106 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\MonitorData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Resolution', 'Refresh Rate', 'Size', 'Panel', 'Response Time', 'HDMI', 'DisplayPort', 'DVI', 'VGA', 'Speaker', 'Curved', 'Adjustable Height', 'Sync', 'Product Page']
+    Rows (sampled up to 2000): 513
+    Sample row: {'Name': 'Acer CB242Y bir', 'Price': '$166.76 USD', 'Producer': 'Acer', 'MPN': 'UM.QB2AA.001', 'EAN': 744759158536, 'UPC': 193199329202.0, 'Resolution': '1920 x 1080', 'Refresh Rate': '75 Hz', 'Size': '23.8"', 'Panel': 'IPS', 'Response Time': '1', 'HDMI': 1, 'DisplayPort': 0, 'DVI': 0, 'VGA': 1, 'Speaker': True, 'Curved': False, 'Adjustable Height': True, 'Sync': 'FreeSync', 'Product Page': 'https://www.amazon.ca/dp/B07V9ZM155?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 4 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\MotherboardData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Socket', 'Chipset', 'Unlocked', 'Form Factor', 'Memory Type', 'Memory Capacity', 'RAM Slots', 'SATA', 'VGA', 'DVI', 'Display Port', 'HDMI', 'WiFi', 'Integrated Graphics', 'Product Page']
+    Rows (sampled up to 2000): 1545
+    Sample row: {'Name': 'MSI B550-A Pro', 'Price': '$145.07 USD', 'Producer': 'MSI', 'MPN': '7C56-002R', 'EAN': 4719072733667, 'UPC': 824142219362.0, 'Socket': 'AM4', 'Chipset': 'B550', 'Unlocked': False, 'Form Factor': 'ATX', 'Memory Type': 'DDR4', 'Memory Capacity': '128 GB', 'RAM Slots': 4, 'SATA': '6', 'VGA': '0', 'DVI': 0.0, 'Display Port': 1.0, 'HDMI': 1.0, 'WiFi': False, 'Integrated Graphics': False, 'Product Page': 'https://www.amazon.ca/dp/B089CZSQB4?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 92 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\PSUData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Watt', 'Size', 'Efficiency Rating', 'Product Page']
+    Rows (sampled up to 2000): 937
+    Sample row: {'Name': 'Seasonic Core GM 80 Plus Gold, semi-modular', 'Price': nan, 'Producer': 'Seasonic', 'MPN': 'CORE-GM-650', 'EAN': 4711173875703, 'UPC': nan, 'Watt': '650 W', 'Size': 'ATX', 'Efficiency Rating': '80 PLUS Gold', 'Product Page': nan}
+    -> Mapped 50 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\RAMData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Ram Type', 'Size', 'Clock', 'Timings', 'Sticks', 'Product Page']
+    Rows (sampled up to 2000): 1674
+    Sample row: {'Name': 'Corsair Vengeance RGB RS', 'Price': '$61.19 USD', 'Producer': 'Corsair', 'MPN': 'CMG16GX4M2E3200C16', 'EAN': 840006649007, 'UPC': nan, 'Ram Type': 'DDR4-3200', 'Size': '16 GB', 'Clock': 3200, 'Timings': '16-20-20-38', 'Sticks': 2, 'Product Page': 'https://www.amazon.ca/dp/B09C5V7M9X?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 78 row(s) via keyword match on column 'Name'.
+
+  --- CSV: computer_hardware\SSDData.csv ---
+    Columns: ['Name', 'Price', 'Producer', 'MPN', 'EAN', 'UPC', 'Form Factor', 'Protocol', 'Size', 'NAND', 'Controller', 'Product Page']
+    Rows (sampled up to 2000): 456
+    Sample row: {'Name': 'Crucial P2 1000 GB', 'Price': '$78.51 USD', 'Producer': 'Crucial', 'MPN': 'CT1000P2SSD8', 'EAN': 649528823472, 'UPC': nan, 'Form Factor': 'M.2', 'Protocol': 'NVM', 'Size': '1000 GB', 'NAND': 'TLC', 'Controller': 'Phison PS5013-E13T', 'Product Page': 'https://www.amazon.ca/dp/B089DNM8LR?tag=pckombo04b-20&linkCode=osi&th=1&psc=1'}
+    -> Mapped 14 row(s) via keyword match on column 'Name'.
+
+=================================================================
+DATASET FOLDER: electronic_components  (Electronic components and devices (aryaminus))
+=================================================================
+  Found 0 CSV file(s), 35 folder(s) containing images.
+
+  --- Image folder: electronic_components\armature (321 image(s), candidate label: 'armature') ---
+
+  --- Image folder: electronic_components\attenuator (271 image(s), candidate label: 'attenuator') ---
+
+  --- Image folder: electronic_components\Bypass-capacitor (302 image(s), candidate label: 'Bypass-capacitor') ---
+
+  --- Image folder: electronic_components\cartridge-fuse (225 image(s), candidate label: 'cartridge-fuse') ---
+
+  --- Image folder: electronic_components\clip-lead (288 image(s), candidate label: 'clip-lead') ---
+
+  --- Image folder: electronic_components\electric-relay (420 image(s), candidate label: 'electric-relay') ---
+
+  --- Image folder: electronic_components\Electrolytic-capacitor (403 image(s), candidate label: 'Electrolytic-capacitor') ---
+
+  --- Image folder: electronic_components\filament (400 image(s), candidate label: 'filament') ---
+
+  --- Image folder: electronic_components\heat-sink (420 image(s), candidate label: 'heat-sink') ---
+
+  --- Image folder: electronic_components\induction-coil (151 image(s), candidate label: 'induction-coil') ---
+
+  --- Image folder: electronic_components\jumper-cable (249 image(s), candidate label: 'jumper-cable') ---
+
+  --- Image folder: electronic_components\junction-transistor (491 image(s), candidate label: 'junction-transistor') ---
+
+  --- Image folder: electronic_components\LED (480 image(s), candidate label: 'LED') ---
+
+  --- Image folder: electronic_components\light-circuit (57 image(s), candidate label: 'light-circuit') ---
+
+  --- Image folder: electronic_components\limiter-clipper (427 image(s), candidate label: 'limiter-clipper') ---
+
+  --- Image folder: electronic_components\local-oscillator (112 image(s), candidate label: 'local-oscillator') ---
+
+  --- Image folder: electronic_components\memory-chip (297 image(s), candidate label: 'memory-chip') ---
+
+  --- Image folder: electronic_components\microchip (461 image(s), candidate label: 'microchip') ---
+
+  --- Image folder: electronic_components\microprocessor (457 image(s), candidate label: 'microprocessor') ---
+
+  --- Image folder: electronic_components\multiplexer (85 image(s), candidate label: 'multiplexer') ---
+
+  --- Image folder: electronic_components\omni-directional-antenna (124 image(s), candidate label: 'omni-directional-antenna') ---
+
+  --- Image folder: electronic_components\PNP-transistor (307 image(s), candidate label: 'PNP-transistor') ---
+
+  --- Image folder: electronic_components\potential-divider (237 image(s), candidate label: 'potential-divider') ---
+
+  --- Image folder: electronic_components\potentiometer (468 image(s), candidate label: 'potentiometer') ---
+
+  --- Image folder: electronic_components\pulse-generator (317 image(s), candidate label: 'pulse-generator') ---
+
+  --- Image folder: electronic_components\relay (443 image(s), candidate label: 'relay') ---
+
+  --- Image folder: electronic_components\rheostat (170 image(s), candidate label: 'rheostat') ---
+
+  --- Image folder: electronic_components\semi-conductor (421 image(s), candidate label: 'semi-conductor') ---
+
+  --- Image folder: electronic_components\semiconductor-diode (417 image(s), candidate label: 'semiconductor-diode') ---
+
+  --- Image folder: electronic_components\shunt (104 image(s), candidate label: 'shunt') ---
+
+  --- Image folder: electronic_components\solenoid (317 image(s), candidate label: 'solenoid') ---
+
+  --- Image folder: electronic_components\stabilizer (162 image(s), candidate label: 'stabilizer') ---
+
+  --- Image folder: electronic_components\step-down-transformer (408 image(s), candidate label: 'step-down-transformer') ---
+
+  --- Image folder: electronic_components\step-up-transformer (155 image(s), candidate label: 'step-up-transformer') ---
+
+  --- Image folder: electronic_components\transistor (153 image(s), candidate label: 'transistor') ---
+
+=================================================================
+DATASET FOLDER: electronic_parts  (Electronic Parts Dataset (olavomendes))
+=================================================================
+  Found 0 CSV file(s), 6 folder(s) containing images.
+
+  --- Image folder: electronic_parts (5 image(s), candidate label: 'electronic_parts') ---
+
+  --- Image folder: electronic_parts\train_set\led (150 image(s), candidate label: 'led') ---
+
+  --- Image folder: electronic_parts\train_set\potentiometer (150 image(s), candidate label: 'potentiometer') ---
+
+  --- Image folder: electronic_parts\train_set\push_button (150 image(s), candidate label: 'push_button') ---
+
+  --- Image folder: electronic_parts\train_set\resistor (150 image(s), candidate label: 'resistor') ---
+
+  --- Image folder: electronic_parts\train_set\ultrasonic_sensor (149 image(s), candidate label: 'ultrasonic_sensor') ---
+
+=================================================================
+DATASET FOLDER: software_reliability  (Software Reliability Dataset (vasanthkumarch))
+=================================================================
+  Found 65 CSV file(s), 0 folder(s) containing images.
+
+  --- CSV: software_reliability\BAe.csv ---
+    Columns: ['Time']
+    Rows (sampled up to 2000): 207
+    Sample row: {'Time': 39}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Brooks_p1.csv ---
+    Columns: ['Date', 'Problem_Reports', 'Valid_Errors', 'CPU_hours']
+    Rows (sampled up to 2000): 12
+    Sample row: {'Date': '1974/3', 'Problem_Reports': 726, 'Valid_Errors': 411, 'CPU_hours': 1215.94}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Brooks_p2.csv ---
+    Columns: ['Date', 'Problem_Reports', 'Valid_Errors', 'Wall_Clock_hours']
+    Rows (sampled up to 2000): 35
+    Sample row: {'Date': 8.0, 'Problem_Reports': 7.0, 'Valid_Errors': 7.25, 'Wall_Clock_hours': 1.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\CSR1.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 397
+    Sample row: {'Failure': 1.0, 'Time_between_failures': 60.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\CSR2.csv ---
+    Columns: ['Failure', 'Time-between_failures']
+    Rows (sampled up to 2000): 129
+    Sample row: {'Failure': 1, 'Time-between_failures': 760}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\CSR3.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 104
+    Sample row: {'Failure': 1.0, 'Time_between_failures': 33.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\DATASET1.csv ---
+    Columns: ['Date', 'Cum_Failures', 'Cum_Usage_Time', 'Sites']
+    Rows (sampled up to 2000): 141
+    Sample row: {'Date': 0.0, 'Cum_Failures': 0.0, 'Cum_Usage_Time': 0.0, 'Sites': 2.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\DATASET2.csv ---
+    Columns: ['Day', 'Defect']
+    Rows (sampled up to 2000): 111
+    Sample row: {'Day': 12, 'Defect': 1}
+    -> Mapped 0 row(s) via keyword match on column 'Defect'.
+
+  --- CSV: software_reliability\DATASET4.csv ---
+    Columns: ['Time', 'Failures']
+    Rows (sampled up to 2000): 32
+    Sample row: {'Time': 1, 'Failures': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\DATASET5.csv ---
+    Columns: ['FFR', 'Year']
+    Rows (sampled up to 2000): 14
+    Sample row: {'FFR': 1050, 'Year': 1981}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\DATASET6.csv ---
+    Columns: ['FID', 'Date', 'Release', 'Severity', 'UsageMode', 'ObservedIn']
+    Rows (sampled up to 2000): 100
+    Sample row: {'FID': 1, 'Date': '1/8/86', 'Release': 'REL-H', 'Severity': '3', 'UsageMode': 'TESTING', 'ObservedIn': 'REL-I'}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\J1.csv ---
+    Columns: ['Week', 'Failures']
+    Rows (sampled up to 2000): 62
+    Sample row: {'Week': 1, 'Failures': 6}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\J2.csv ---
+    Columns: ['Week', 'Failures']
+    Rows (sampled up to 2000): 181
+    Sample row: {'Week': 1, 'Failures': 0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\J3.csv ---
+    Columns: ['Week', 'Failures']
+    Rows (sampled up to 2000): 41
+    Sample row: {'Week': 1, 'Failures': 4}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\J4.csv ---
+    Columns: ['Week', 'Failures']
+    Rows (sampled up to 2000): 114
+    Sample row: {'Week': 1, 'Failures': 0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\J5.csv ---
+    Columns: ['Week', 'Failures']
+    Rows (sampled up to 2000): 73
+    Sample row: {'Week': 1, 'Failures': 2}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Matsumoto_t2.csv ---
+    Columns: ['n', 'x125', 'x132', 'x133', 'x134', 'x136']
+    Rows (sampled up to 2000): 27
+    Sample row: {'n': 1.0, 'x125': 36.0, 'x132': 145.0, 'x133': 59.0, 'x134': 234.0, 'x136': 103.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Musa-15_5.csv ---
+    Columns: ['Failure', 'CPU_sec']
+    Rows (sampled up to 2000): 163
+    Sample row: {'Failure': 1, 'CPU_sec': 320}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\NTDS.csv ---
+    Columns: ['Phase', 'Error', 'Days']
+    Rows (sampled up to 2000): 34
+    Sample row: {'Phase': 'Checkot', 'Error': 1, 'Days': 9}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC1.csv ---
+    Columns: ['Day', 'DefectType']
+    Rows (sampled up to 2000): 1207
+    Sample row: {'Day': 1, 'DefectType': 'Assn/Ck/alg'}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC2.csv ---
+    Columns: ['Open_Date', 'Defect_Type', 'Missing_Incorrect', 'Defect_Trigger', 'Close_Date', 'Sequence']
+    Rows (sampled up to 2000): 255
+    Sample row: {'Open_Date': '1991-05-28', 'Defect_Type': 'Function', 'Missing_Incorrect': 'Missing', 'Defect_Trigger': 'Rare Situation', 'Close_Date': nan, 'Sequence': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC3.csv ---
+    Columns: ['Open_Date', 'Phase_Found', 'Defect_Type', 'Missing_Incorrect', 'Defect_Source', 'Defect_Impact', 'Defect_Trigger', 'Phase_Injected', 'Severity', 'Priority', 'Close_Date', 'Defect_Location', 'Sequence']
+    Rows (sampled up to 2000): 400
+    Sample row: {'Open_Date': '1992-09-10', 'Phase_Found': 'CODE', 'Defect_Type': 'Function', 'Missing_Incorrect': 'INCORRECT', 'Defect_Source': 'PTM/DCR_error', 'Defect_Impact': 'Capability', 'Defect_Trigger': nan, 'Phase_Injected': 'CODE', 'Severity': 'MAJOR', 'Priority': 'LOW', 'Close_Date': '1992-09-10', 'Defect_Location': 'CODE', 'Sequence': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC4.csv ---
+    Columns: ['Open_Date', 'Defect_Type', 'Missing_Incorrect', 'Defect_Source', 'Defect_Impact', 'Defect_Trigger', 'Phase_Found', 'Sequence']
+    Rows (sampled up to 2000): 2000
+    Sample row: {'Open_Date': '1993-05-13', 'Defect_Type': 'Algorithm', 'Missing_Incorrect': 'MISSING', 'Defect_Source': 'Prior_Release', 'Defect_Impact': 'Maintain/Service', 'Defect_Trigger': nan, 'Phase_Found': 'CODE', 'Sequence': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC5.csv ---
+    Columns: ['Open_Date', 'Defect_Type', 'Missing_Incorrect', 'Defect_Source', 'Defect_Impact', 'Defect_Trigger', 'Phase_Found', 'Defect_Location', 'Sequence']
+    Rows (sampled up to 2000): 378
+    Sample row: {'Open_Date': '1992-10-30', 'Defect_Type': 'Function', 'Missing_Incorrect': 'INCORRECT', 'Defect_Source': nan, 'Defect_Impact': 'Reliability/Avail', 'Defect_Trigger': 'Design NonConformance', 'Phase_Found': 'MLD', 'Defect_Location': 'MLD', 'Sequence': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\ODC6.csv ---
+    Columns: ['Open_Date', 'Week_No', 'Defect_Type', 'Defect_Source', 'Missing_Incorrect', 'Sequence']
+    Rows (sampled up to 2000): 194
+    Sample row: {'Open_Date': '03-09-1994', 'Week_No': 'Week 1', 'Defect_Type': 'Assignment', 'Defect_Source': 'New-Function', 'Missing_Incorrect': 'Missing', 'Sequence': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Ohba84-hcp.csv ---
+    Columns: ['Month', 'Module_A', 'Module_B', 'Module_C']
+    Rows (sampled up to 2000): 10
+    Sample row: {'Month': 1.0, 'Module_A': nan, 'Module_B': 10.0, 'Module_C': nan}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\P38.csv ---
+    Columns: ['Failure', 'Use_time', 'Elapsed_time']
+    Rows (sampled up to 2000): 17
+    Sample row: {'Failure': 1.0, 'Use_time': 932.0, 'Elapsed_time': 3.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\PL1_db.csv ---
+    Columns: ['Failures', 'Cumulative_CPU_hours']
+    Rows (sampled up to 2000): 19
+    Sample row: {'Failures': 15.0, 'Cumulative_CPU_hours': 2.45}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\S27.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 41
+    Sample row: {'Failure': 1, 'Time_between_failures': 20336}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\S2a.csv ---
+    Columns: ['Failure', 'Time-between-failures']
+    Rows (sampled up to 2000): 54
+    Sample row: {'Failure': 1, 'Time-between-failures': 191}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\S2b.csv ---
+    Columns: ['Period', 'Failures']
+    Rows (sampled up to 2000): 22
+    Sample row: {'Period': 1, 'Failures': 12}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SS1.csv ---
+    Columns: ['Phase', 'Time', 'Failures', 'Cumulative_Failures']
+    Rows (sampled up to 2000): 81
+    Sample row: {'Phase': 'Validation', 'Time': 1, 'Failures': 7, 'Cumulative_Failures': 7}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SS3.csv ---
+    Columns: ['Filure', 'Time_between_Failure']
+    Rows (sampled up to 2000): 278
+    Sample row: {'Filure': 1, 'Time_between_Failure': 107400}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SS4.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 197
+    Sample row: {'Failure': 1, 'Time_between_failures': 242460}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SYS1.csv ---
+    Columns: ['Failure', 'Time_between_failure']
+    Rows (sampled up to 2000): 136
+    Sample row: {'Failure': 1, 'Time_between_failure': 3}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SYS2.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 86
+    Sample row: {'Failure': 1, 'Time_between_failures': 479}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\SYS3.csv ---
+    Columns: ['Failure', 'Time_between_failures']
+    Rows (sampled up to 2000): 207
+    Sample row: {'Failure': 1, 'Time_between_failures': 39}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Stratus-1.csv ---
+    Columns: ['hours', 'defects']
+    Rows (sampled up to 2000): 73
+    Sample row: {'hours': 504, 'defects': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Stratus-2.csv ---
+    Columns: ['hours', 'defects']
+    Rows (sampled up to 2000): 120
+    Sample row: {'hours': 168, 'defects': 0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\T1.csv ---
+    Columns: ['cpu_sec']
+    Rows (sampled up to 2000): 136
+    Sample row: {'cpu_sec': 3}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\T38.csv ---
+    Columns: ['CPU_hour', 'Failures']
+    Rows (sampled up to 2000): 11
+    Sample row: {'CPU_hour': 5, 'Failures': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\T39.csv ---
+    Columns: ['Group', 'CPU_hour', 'Failures']
+    Rows (sampled up to 2000): 19
+    Sample row: {'Group': 1.0, 'CPU_hour': 62.0, 'Failures': 5.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\TABLE20.csv ---
+    Columns: ['Pr_id', 'Failure_time', 'Recovery_time', 'Error_type']
+    Rows (sampled up to 2000): 186
+    Sample row: {'Pr_id': 1, 'Failure_time': 29604556, 'Recovery_time': 29605120, 'Error_type': 'Software'}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Wood_T3-1.csv ---
+    Columns: ['Release', 'Test_Week', 'Defects', 'Execution_hrs']
+    Rows (sampled up to 2000): 70
+    Sample row: {'Release': 'R1', 'Test_Week': 1, 'Defects': 16, 'Execution_hrs': 519}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\Wood_T3-9.csv ---
+    Could not read file: Error tokenizing data. C error: Expected 4 fields in line 21, saw 5
+
+
+  --- CSV: software_reliability\Xie_T1.csv ---
+    Columns: ['Week', 'Detected', 'Corrected']
+    Rows (sampled up to 2000): 17
+    Sample row: {'Week': 1, 'Detected': 12, 'Corrected': 3}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\anna_D11.csv ---
+    Columns: ['Faults', 'Test_hours']
+    Rows (sampled up to 2000): 118
+    Sample row: {'Faults': 1.0, 'Test_hours': 1.1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\anna_D12.csv ---
+    Columns: ['Faults', 'Test_hours']
+    Rows (sampled up to 2000): 180
+    Sample row: {'Faults': 1.0, 'Test_hours': 0.267}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\anna_D13.csv ---
+    Columns: ['Faults', 'Test_hours']
+    Rows (sampled up to 2000): 213
+    Sample row: {'Faults': 1.0, 'Test_hours': 0.825}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\apollo8.csv ---
+    Columns: ['Failure', 'Time-between-Failure']
+    Rows (sampled up to 2000): 26
+    Sample row: {'Failure': 1, 'Time-between-Failure': '9.00'}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\dalal_tI.csv ---
+    Columns: ['Tester_Days', 'Faults', 'NCNCSL']
+    Rows (sampled up to 2000): 198
+    Sample row: {'Tester_Days': 0.0, 'Faults': 0.0, 'NCNCSL': 0.0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\goel_tII.csv ---
+    Columns: ['CPU_Hour', 'Failures', 'Cum_Failures']
+    Rows (sampled up to 2000): 25
+    Sample row: {'CPU_Hour': 1, 'Failures': 27, 'Cum_Failures': '27'}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\singsys_40.csv ---
+    Columns: ['Failure', 'Interval_Time']
+    Rows (sampled up to 2000): 100
+    Sample row: {'Failure': 1, 'Interval_Time': 14390}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\stucki_tI.csv ---
+    Columns: ['Date', 'Errors', 'Cum_Error', 'CPU_Time']
+    Rows (sampled up to 2000): 15
+    Sample row: {'Date': '1/12', 'Errors': 8, 'Cum_Error': 8, 'CPU_Time': 0.5}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\tohma89_t1.csv ---
+    Columns: ['Day', 'Faults', 'Testers']
+    Rows (sampled up to 2000): 111
+    Sample row: {'Day': 1, 'Faults': 5, 'Testers': 4}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\tohma89_t3.csv ---
+    Columns: ['Debug_Days', 'Debug_Time_hour', 'Cum_Time', 'Faults', 'Cum_Faults']
+    Rows (sampled up to 2000): 22
+    Sample row: {'Debug_Days': 1, 'Debug_Time_hour': 1, 'Cum_Time': 1, 'Faults': 1, 'Cum_Faults': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\tohma89_t5.csv ---
+    Columns: ['Day', 'Faults', 'Cum_faults', 'Test_items']
+    Rows (sampled up to 2000): 46
+    Sample row: {'Day': 1, 'Faults': 2, 'Cum_faults': 2, 'Test_items': 75}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\tohma89_tV.csv ---
+    Columns: ['Day', 'Cum_faults']
+    Rows (sampled up to 2000): 199
+    Sample row: {'Day': 1, 'Cum_faults': 0}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\tohma91_t1.csv ---
+    Columns: ['Day', 'Cum_faults', 'Testers']
+    Rows (sampled up to 2000): 109
+    Sample row: {'Day': 1, 'Cum_faults': 4, 'Testers': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F1.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 197
+    Sample row: {'Date': 19860424, 'Cum_Faults': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F2.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 16
+    Sample row: {'Date': 19870827, 'Cum_Faults': 2}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F3.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 199
+    Sample row: {'Date': 19870129, 'Cum_Faults': 3}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F4.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 202
+    Sample row: {'Date': 19880328, 'Cum_Faults': 4}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F5.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 408
+    Sample row: {'Date': 19860116, 'Cum_Faults': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+  --- CSV: software_reliability\westgate_F6.csv ---
+    Columns: ['Date', 'Cum_Faults']
+    Rows (sampled up to 2000): 115
+    Sample row: {'Date': 19870112, 'Cum_Faults': 1}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+=================================================================
+DATASET FOLDER: software_defects  (Software Defect Prediction (semustafacevik))
+=================================================================
+  Found 1 CSV file(s), 0 folder(s) containing images.
+
+  --- CSV: software_defects\jm1.csv ---
+    Columns: ['loc', 'v(g)', 'ev(g)', 'iv(g)', 'n', 'v', 'l', 'd', 'i', 'e', 'b', 't', 'lOCode', 'lOComment', 'lOBlank', 'locCodeAndComment', 'uniq_Op', 'uniq_Opnd', 'total_Op', 'total_Opnd', 'branchCount', 'defects']
+    Rows (sampled up to 2000): 2000
+    Sample row: {'loc': 1.1, 'v(g)': 1.4, 'ev(g)': 1.4, 'iv(g)': 1.4, 'n': 1.3, 'v': 1.3, 'l': 1.3, 'd': 1.3, 'i': 1.3, 'e': 1.3, 'b': 1.3, 't': 1.3, 'lOCode': 2, 'lOComment': 2, 'lOBlank': 2, 'locCodeAndComment': 2, 'uniq_Op': '1.2', 'uniq_Opnd': '1.2', 'total_Op': '1.2', 'total_Opnd': '1.2', 'branchCount': '1.4', 'defects': False}
+    -> SKIPPED: no recognizable free-text column (looks like a specs/metrics table, not symptom narratives).
+
+=================================================================
+SUMMARY
+=================================================================
+Text:  wrote 559 candidate row(s) to data\hardware_faults_dataset_audit.csv for manual review.
+       Review it, remove anything wrong, then append good rows to
+       data\hardware_faults_dataset.csv before re-running train_model.py.
+
+Images: wrote 11274 image path(s) to data\external_image_manifest.csv.
+        Candidate labels found (folder names) and counts:
+          potentiometer: 618
+          junction-transistor: 491
+          LED: 480
+          microchip: 461
+          microprocessor: 457
+          relay: 443
+          limiter-clipper: 427
+          semi-conductor: 421
+          electric-relay: 420
+          heat-sink: 420
+          semiconductor-diode: 417
+          step-down-transformer: 408
+          Electrolytic-capacitor: 403
+          filament: 400
+          armature: 321
+          pulse-generator: 317
+          solenoid: 317
+          PNP-transistor: 307
+          Bypass-capacitor: 302
+          memory-chip: 297
+          clip-lead: 288
+          attenuator: 271
+          jumper-cable: 249
+          potential-divider: 237
+          cartridge-fuse: 225
+          rheostat: 170
+          stabilizer: 162
+          step-up-transformer: 155
+          transistor: 153
+          induction-coil: 151
+          led: 150
+          resistor: 150
+          push_button: 150
+          ultrasonic_sensor: 149
+          omni-directional-antenna: 124
+          local-oscillator: 112
+          shunt: 104
+          multiplexer: 85
+          light-circuit: 57
+          electronic_parts: 5
+        These folder names are raw guesses from directory structure, not
+        validated against the chatbot's fault categories - review before use.
+
+
+17. Final Notes
+---------------
+
+This project is intentionally hybrid:
+- The ML model provides probabilistic intent classification.
+- The knowledge base provides explainable category matching and repair steps.
+- The dialogue manager makes the interaction multi-turn and user-friendly.
+- The front end adds image support and a visible session history.
+
+The training log in train.txt confirms that:
+- Linear SVM was selected as the best classifier.
+- The external dataset ingestion found many spec tables and image folders.
+- Much of the external data needs manual review before it can be used for
+  training the hardware-fault text classifier.
+
+End of report.

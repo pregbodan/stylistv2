@@ -1,0 +1,9 @@
+Flask==3.0.3
+scikit-learn==1.5.1
+pandas==2.2.2
+nltk==3.8.1
+joblib==1.4.2
+numpy==1.26.4
+
+# Optional: only required if DB_ENGINE=mysql is set (defaults to SQLite, no install needed)
+# mysql-connector-python==8.4.0

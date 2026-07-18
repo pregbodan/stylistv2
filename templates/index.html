@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HARDDX — Hardware Diagnosis Assistant</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="logo-mark">HX</span>
+    <div class="logo-text">
+      <span class="logo-title">HARDDX</span>
+      <span class="logo-sub">Hardware Diagnosis Console</span>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <button type="button" class="settings-btn" id="settingsBtn" title="Vision API settings">⚙ VISION KEY</button>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      ENGINE ONLINE
+    </div>
+  </div>
+</header>
+
+<main class="layout">
+
+  <aside class="rail">
+    <div class="rail-block">
+      <span class="rail-label">DIAGNOSTIC METHOD</span>
+      <ul class="rail-list">
+        <li><span class="tick"></span>NLP intent parsing</li>
+        <li><span class="tick"></span>TF&#8209;IDF + SVM classifier</li>
+        <li><span class="tick"></span>Rule&#8209;based KB matching</li>
+        <li><span class="tick"></span>Gemini image analysis</li>
+        <li><span class="tick"></span>Multi&#8209;turn guided fix</li>
+      </ul>
+    </div>
+    <div class="rail-block">
+      <span class="rail-label">TRY DESCRIBING</span>
+      <ul class="suggestion-list" id="suggestionList">
+        <li>My PC won't turn on</li>
+        <li>Laptop keeps overheating</li>
+        <li>Random blue screen crashes</li>
+        <li>Hard drive making clicking noise</li>
+        <li>No signal on my monitor</li>
+      </ul>
+    </div>
+    <div class="rail-block">
+      <span class="rail-label">SESSION HISTORY</span>
+      <ul class="history-list" id="historyList">
+        <li class="history-empty" id="historyEmpty">No messages yet.</li>
+      </ul>
+    </div>
+    <div class="rail-block rail-disclaimer">
+      <span class="rail-label">NOTE</span>
+      <p>This tool gives general guidance only. For physical repairs, work with power
+      disconnected and consult a qualified technician if unsure.</p>
+    </div>
+  </aside>
+
+  <section class="console">
+    <div class="console-feed" id="chatFeed">
+      <div class="msg msg-bot">
+        <div class="msg-meta">HARDDX</div>
+        <div class="msg-bubble">
+          Describe the fault you're experiencing, or attach a photo — what happens,
+          any sounds, lights, or error messages — and I'll ask a couple of quick
+          questions, then walk you through the fix one step at a time.
+        </div>
+      </div>
+    </div>
+
+    <div class="image-preview-bar" id="imagePreviewBar" hidden>
+      <img id="imagePreviewThumb" alt="Selected image preview" />
+      <span class="image-preview-name" id="imagePreviewName"></span>
+      <button type="button" class="image-preview-remove" id="imagePreviewRemove" aria-label="Remove image">✕</button>
+    </div>
+
+    <form class="composer" id="composerForm" autocomplete="off">
+      <button type="button" class="composer-attach" id="attachBtn" title="Attach a photo" aria-label="Attach a photo">📷</button>
+      <input type="file" id="imageInput" accept="image/*" hidden />
+      <input
+        type="text"
+        id="userInput"
+        class="composer-input"
+        placeholder="e.g. my computer shuts down randomly while gaming"
+        maxlength="300"
+      />
+      <button type="submit" class="composer-send" id="sendBtn">SEND</button>
+    </form>
+  </section>
+
+</main>
+
+<!-- Settings modal for the user's own Gemini API key (stored only in their browser) -->
+<div class="modal-overlay" id="settingsOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <h2 id="settingsTitle">Image diagnosis setup</h2>
+    <p class="modal-copy">
+      Photo analysis uses Google's Gemini Vision API directly from your browser.
+      Your key is stored only in this browser's local storage — it is never sent
+      to the HARDDX server.
+    </p>
+    <label class="modal-label" for="apiKeyInput">Gemini API key</label>
+    <input type="password" id="apiKeyInput" class="modal-input" placeholder="AIza..." autocomplete="off" />
+    <p class="modal-hint">
+      Get a free key at
+      <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.
+    </p>
+    <div class="modal-actions">
+      <button type="button" class="modal-btn modal-btn-secondary" id="settingsCancel">Cancel</button>
+      <button type="button" class="modal-btn modal-btn-primary" id="settingsSave">Save key</button>
+    </div>
+  </div>
+</div>
+
+<!-- Templates cloned by chat.js -->
+
+<template id="diagnosisTemplate">
+  <div class="diagnosis-card">
+    <div class="diagnosis-head">
+      <span class="diagnosis-label"></span>
+      <span class="diagnosis-confidence"></span>
+    </div>
+    <div class="diagnosis-severity"></div>
+
+    <div class="diagnosis-section">
+      <span class="section-title">LIKELY CAUSES</span>
+      <ul class="cause-list"></ul>
+    </div>
+  </div>
+</template>
+
+<template id="stepTemplate">
+  <div class="step-card">
+    <div class="step-head">
+      <span class="step-number"></span>
+      <span class="step-progress"></span>
+    </div>
+    <p class="step-text"></p>
+    <p class="step-check"></p>
+    <form class="step-reply-form">
+      <input type="text" class="step-reply-input" placeholder="Type your answer or reply here…" />
+      <button type="submit" class="step-reply-send">REPLY</button>
+    </form>
+  </div>
+</template>
+
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="{{ url_for('static', filename='js/vision.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

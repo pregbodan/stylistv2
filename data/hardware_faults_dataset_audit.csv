@@ -1,0 +1,560 @@
+text,fault_category,source_dataset,source_file
+Corsair Cooling Hydro Series H100i Pro,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H115i PRO,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Corsair Cooling Hydro Series H150i PRO , RGB",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Noctua NH-U9S 92mm SSO2 U-Type Premium , NF-A9 PWM Fans, Retail",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright Silver Arrow IB-E Extreme Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Akasa Aluminium Kühler 50mm Fan socket A,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Alpenföhn Panorama - 100mm,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING ACALP11-PRO-R2 92mm Fluid Dynamic Alpine 11 Pro Rev. 2 for Intel,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING ACALP64 Pro 92mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING ACALP64-GT 80mm Alpine 64 GT,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING ACFZ11-LP 92mm Fluid Dynamic Freezer 11 LP Intel for Power Users,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING ACFZ13 92mm High Performance for Intel and AMD,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING Freezer 7 Pro Rev.2 92mm Fluid Dynamic,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING Freezer A32 120mm Fluid Dynamic with 120 mm Fan for AMD with New Fan Controller Made in Germany and PWM PST,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING UCACO-FA11001-CSA01 92mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING UCACO-FI11001-CSA01 92mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ARCTIC COOLING UCACO-P0900-CSB01 120mm Fluid Dynamic Bearing,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Cooler Master Hyper 212X - with Dual 120mm PWM Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H100i Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H100i Platinum SE,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H115i Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H45,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H55,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H60 High Performance,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H60i RGB PRO XT,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H75 Performance,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Corsair Cooling Hydro Series H80i V2,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Corsair iCUE H150i ELITE mit LCD-Monitor, black",display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Corsair iCUE H170i ELITE mit LCD-Monitor, black",display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+DEEPCOOL Gamer Storm Lucifer K2 6 Heatpipes 120mm Slim and Silent PWM Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+DEEPCOOL GamerStorm ASSASSIN II 8 Heatpipes Dual PWM Fans&FDB Bearing 300RPM Min. Nickel-plated fins,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+DEEPCOOL GAMMAXX 200T 2 Heat pipes 120mm PWM Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+DEEPCOOL GAMMAXX 400 4 Heatpipes 120mm PWM Fan with Blue LED,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T40F-BK 120mm Twister Aluminum 120mm Black with blue LED PWM Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T40F-RF 140mm Twister Aluminum 120mm Black with 140mm PWM Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T40F-TB 120mm Twister Aluminum 120mm with PWM Fan Low 8 dBA nosie w/ fan adaptor,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T40F-W 120mm Twister Aluminum 120mm White with Dual White LED PWM Fans,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T50A-BVT Twister Aluminum 120mm with DFR (Dust Free Rotation) Vegas Fan with 3 color LED,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+ENERMAX ETS-T50A-WVS Twister Aluminum 120mm White with DFR (Dust Free Rotation) White LED Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+EVERCOOL HPO-12025 120mm x 2 (SSF-12 & Silent Fan) Ever Lubricate,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Hyper 212 LED with PWM Fan, Four Direct Contact Heatpipes, Unique Fan Blade Design, Red LEDs, Optimized Bracket Design by Cooler Master",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Intel Thermal Solution HTS1155LP - socket 1155,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Intel Thermal Solution TS13X,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Noctua NH-D9L 92mm SSO2 Low-profile Premium , NF-A9 PWM Fans",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Noctua NH-L9x65 92 x 92 x 14mm, 92 x 92 x 25mm SSO2 Low-profile Quiet , NF-A9x14 PWM fan",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+SilverStone Argon Series AR04 Low Profile with 80mm Fan for Socket LGA1150/1156/1155,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"SilverStone Argon Series AR05 Rifle Bearing with 92mm Fan for Socket LGA1155/1156/1150, AM2/AM3/FM1/FM2",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"SilverStone Argon Series AR06 Rifle Bearing with 92mm Fan for Socket LGA1155/1156/1150, AM2/AM3/FM1/FM2",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright AXP-200R ROG Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright Macho 120 SBM Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright Macho 90 Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright Macho Direct Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright Macho X2 Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright True Spirit 120 M BW Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright True Spirit 140 Power Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermalright True Spirit 90 M Rev.A Processor Cooler,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Engine 17 Low-Profile,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Floe Riing RGB TT Premium-Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Floe Riing RGB TT Premium-Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Floe Riing RGB TT Premium-Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Riing Silent 12 Blue - 120mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Riing Silent 12 Pro Blue - 120mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Riing Silent 12 Pro Red - 120mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Riing Silent 12 Red - 120mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Riing Silent 12 RGB Sync Edition - 120mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 ARGB Sync,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 ARGB Sync,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 ARGB Sync,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Thermaltake Water 3.0 Riing , red - 140 mm",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Thermaltake Water 3.0 Riing , red - 280 mm",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 Riing RGB - 240 mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 Riing RGB - 280 mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+Thermaltake Water 3.0 Riing RGB - 360 mm,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CPUCoolerData.csv
+"Thermaltake Core P7, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Core Midi-Tower USB 3.0 - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Core Midi-Tower USB 3.0 - black Window,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Core Midi-Tower USB 3.0 - white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Core Midi-Tower USB 3.0 - white Window,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Midi-Tower USB 3.0 - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Midi-Tower USB 3.0 - black Window,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Midi-Tower USB 3.0 - black/grün/grün Window,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Midi-Tower USB 3.0 - white/blue/dunkelblue,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+BitFenix Shinobi Midi-Tower USB 3.0 - white/black/black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Cryorig Taku Mini-ITX/Monitorstand,display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Core 1000 USB3.0 Micro-ATX - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Define R6 USB-C Midi-Tower - grey,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Define R6 USB-C Midi-Tower - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Define R6 USB-C Midi-Tower - black/white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Define R6 USB-C Midi-Tower - Tempered Glass - black/white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Fractal Design Define R6 USB-C Midi-Tower - Tempered Glass, grey",peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Fractal Design Define R6 USB-C Midi-Tower - Tempered Glass, black",peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Fractal Design Define R6 USB-C Midi-Tower - Tempered Glass, white",peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Fractal Design Define R6 USB-C Midi-Tower - white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+IN WIN D-Frame 2.0 Design Big-Tower - black/gold,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"IN WIN D-Frame 2.0 Design Big-Tower, NVIDIA Edition - black/grün",ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+IN WIN D-Frame Mini Mini-ITX - red,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"InWin D-Frame 2.0 Design Big-Tower, Intel Edition - white/blue",ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+InWin D-Frame Mini Mini-ITX - orange,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Lian Li PC-9NB Midi-Tower USB 3.0 - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"PHANTEKS Eclipse G500A D-RGB Fanless Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-GD09-C USB 3.0 Grandia Desktop - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-RV04B-W USB 3.0 Raven Big-Tower - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-SG06S USB 3.0 Sugo inkl. 300W Netzteil - silver,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-SG13B Sugo USB3.0 - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-SG13B-Q Sugo USB3.0 - black,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-SG13WB Sugo USB3.0 - white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Silverstone SST-SG13WB-Q Sugo USB3.0 - white,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake A500 TG Aluminum Midi-Tower, Tempered Glass - space grey",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake AH T600 Snow Edition Showcase, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake AH T600 TG Showcase, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Commander C31 TG ARGB Tempered Glass Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Commander C33 TG ARGB Tempered Glass Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Commander MS-I Snow Edition Midi-Tower - white/black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Commander MS-I USB 3.0 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P1, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P3 - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P3 - white Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P3 TG Curved Edition, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P3 TG Showcase - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P3 TG Snow Edition, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P5 - Green Edition Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P5 - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P5 Ti, Tempered Glass - Space Grey",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P5, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core P5, Tempered Glass - Snow Edition",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core P90 TG Tempered Glass Showcase - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V1 Mini-ITX - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V1 Snow Edition Mini-ITX - white Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V21 Micro-ATX - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V31 Window Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V51 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V71 Big-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core V71 TG Big-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core X31 TG Tempered Glass Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core X5 ATX-Cube, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Core X5 ATX-Cube, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Core X71 TG Tempered Glass Big-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake DistroCase 350P, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Level 10 GT Snow Edition Big-Tower - white/black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 GT ARGB Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 GT ARGB Black Edition Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 GT Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 GT RGB Plus Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 HT Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 HT Snow Edition Big-Tower, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 MT ARGB Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Level 20 RS ARGB, Midi-Tower - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Level 20 Showcase - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Level 20 VT Micro-ATX - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Level 20 XT E-ATX Cube - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Overseer RX-I Big-Tower Window - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake S500 TG Snow Edition Midi-Tower, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Suppressor F1 Mini-ITX - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Suppressor F31 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Suppressor F31 Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake V200 TG RGB Edition Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake V250 TG ARGB Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa C21 RGB Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa C22 RGB Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Versa C23 TG RGB Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake Versa G2 Midi Tower, Seitenfenster - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa H15 Micro-ATX Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa H21 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa H22 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa H23 Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa H34 Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa J21 TG Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa N23 Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa N27 Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake Versa N27 Snow Midi-Tower - white Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 21 Tempered Glass Edition Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 22 TG Tempered Glass Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 23 TG ARGB Sync Midi-Tower - black, Window",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 27 Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 28 RGB Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 28 RGB Riing Edition Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 31 Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 31 RGB Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 31 TG ARGB Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 32 TG RGB Midi-Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 37 RGB Plus Midi-Tower - black Window,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 51 TG ARGB Midi-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 51 TG ARGB Midi-Tower, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 71 TG Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 71 TG RGB Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 71 TG RGB Plus Big-Tower, Tempered Glass - black",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+"Thermaltake View 71 TG Snow Big-Tower, Tempered Glass - white",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+Thermaltake View 91 TG RGB Super Tower - black,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\CaseData.csv
+PNY GeForce RTX 3060 XLR8 Gaming Revel EPIC-X RGB Single Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+PNY GeForce RTX 4080 XLR8 Gaming VERTO Triple Fan Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+Gigabyte GeForce GTX 1080 Xtreme Gaming Water Cooling,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+Gigabyte Radeon RX Vega 64 Watercooling 8G,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+INNO3D GeForce GTX 1070 Ti Jet-Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+PNY GeForce GTX 1070 XLR8 OC Gaming Dual Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+PNY GeForce RTX 2060 SUPER XRL8 OC Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+PNY GeForce RTX 2080 XLR8 Gaming OC Triple Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+PNY GeForce RTX 2080 XLR8 Gaming OC Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+Sapphire Radeon HD 6970 Dual Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+Sapphire Radeon RX Vega 64 Liquid Cooling,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Dual Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Dual Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Passive Heatsink Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Passive Heatsink Edition,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Single Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 460 Single Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 550 Single Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+XFX Radeon RX 550 Single Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce GTX 1650 Super Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce GTX 1660 Super Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce GTX 1660 Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce RTX 2060 Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce RTX 2080 Super Triple Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce RTX 2080 Super Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce RTX 2080 Ti Triple Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+ZOTAC GAMING GeForce RTX 2080 Ti Twin Fan,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\GPUData.csv
+Seagate Archive Hard Drive ST6000AS0002 6TB 5900rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Archive Hard Drive ST8000AS0002 8TB 5900rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Compute Hard Drive 2 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Barracuda Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Barracuda Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Barracuda Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 1 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 1 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 2 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 3 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 3 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 4 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 4 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 5 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 6 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive 1 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive 12 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive 14 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive 2 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive ST10000DM0004,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate BarraCuda Pro Hard Drive ST8000DM005,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Desktop Hard Drive ST3000DM001,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Desktop Hard Drive ST5000DM002,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Desktop Hard Drive ST6000DM001,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise Hard Drive v5,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise NAS Hard Drive ST2000VN0001 2TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise NAS Hard Drive ST4000VN0001 4TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise NAS Hard Drive ST5000VN0001 5TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise NAS Hard Drive ST6000VN0001 6TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Enterprise NAS Hard Drive ST8000NE0001 8TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos 7E2 Hard Drive 2 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos 7E8 Hard Drive 2 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos 7E8 Hard Drive 4 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos 7E8 Hard Drive 6 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos 7E8 Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos E 7E8 Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X10 Hard Drive 10 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X14 Hard Drive 12 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X16 Hard Drive 12 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X16 Hard Drive 14 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X16 Hard Drive 16 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Exos X16 Hard Drive 18 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 1 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 10 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 12 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Ironwolf Hard Drive 14 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 16 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 6 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 6 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf NAS Hard Drive ST10000VN0004,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf NAS Hard Drive ST2000VN004,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf NAS Hard Drive ST3000VN007,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf NAS Hard Drive ST4000VN008,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf NAS Hard Drive ST6000VN0041,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 10 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 12 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 14 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 16 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 4 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro NAS Hard Drive ST10000NE0004 10TB 7200rpm 256MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro NAS Hard Drive ST2000NE0025 2TB 7200rpm 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro NAS Hard Drive ST6000NE0021 6TB 7200rpm 256MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate IronWolf Pro NAS Hard Drive ST8000NE0021 8TB 7200rpm 256MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Mobile Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Mobile Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate NAS Hard Drive ST2000VN000 2TB 5900rpm 64MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive 3 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive 4 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive 6 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Skyhawk Hard Drive 8 TB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive ST1000VX005,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive ST2000VX008,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate SkyHawk Hard Drive ST6000VX0023,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive ST1000VX000,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive ST1000VX003,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive ST2000VX000,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive ST4000VX000,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Surveillance Hard Drive ST8000VX0002,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Seagate Video 3.5 Hard Drive ST2000VM003,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Toshiba Cloud Hard Drive MC04ACA200E 2TB 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Toshiba Cloud Hard Drive MC04ACA300E 3TB 128MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Toshiba Surveillance Hard Drive MD03ACA200V 2TB 64MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Toshiba Surveillance Hard Drive MD03ACA300V 3TB 64MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Toshiba Surveillance Hard Drive MD03ACA400V 4TB 64MB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\HDDData.csv
+Lamptron HM101 - Hardware Monitor und virtuelle Tastatur,display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MonitorData.csv
+Lamptron HM101 Hardware Monitor,display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MonitorData.csv
+Lamptron HM140 - Hardware Monitor,display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MonitorData.csv
+Lamptron HX070 - Hardware Monitor,display_gpu_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MonitorData.csv
+ASRock 970 PRO3 R2.0 GL/SATA600/R/USB3.0 970,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS A88X-Pro SATA600/R/eSATA/USB3.0/DVI/HDMI/VGA/DP A88X,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B150I-PRO Gaming/Aura USB3.0/M.2/HDMI/DVI Mini-ITX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B150M-A GL/USB3.1/SATA600/HDMI/VGA/DVI B150,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B150M-A/M.2 USB3.1/M.2/HDMI/VGA/DVI B150,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS MAXIMUS VIII Impact USB3.1/SATA600/U.2/WIFI/BT/HDMI Mini-ITX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Asus ROG RAMPAGE VI EXTREME,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-B150M-DS3H GL/USB3.0/M.2/HDMI/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-F2A68HM-DS2 GL/SATA600/R/DVI/VGA/USB3.0 A68H,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H81M-S2V GL/SATA600/USB3.0/DVI/VGA H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H81M-E34 GL/SATA600/USB3.0/DVI/HDMI/VGA H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H81M-P33 GL/SATA600/USB3.0/DVI/VGA H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock C236 WSI 2xLAN/SATA600/USB3.0/DP/HDMI/VGA Mini ITX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock C236M WS 2xLAN/SATA600/USB3.0/DP/HDMI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock E3V5 WS SATA600/USB3.0 C232,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock FM2A88X+ BTC Bitcoin GL/SATA600/USB3.0/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock G41M-VS3 R2.0 IDE(PATA)/SATA/USB2.0/VGA G41 GMA X4500,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock Z170 OC Formula USB3.1/DP/HDMI/M.2/SATAe,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock Z170 Pro4/D3 USB3.0/SATA600/DVI/HDMI/M.2/SATAe,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock Z170M Pro4S USB3.0/SATA600/DVI/HDMI/M.2,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASRock Z87 Pro4 GL/SATA600/R/USB3.0/DVI/2x HDMI/VGA Z87,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS A68HM-K GL/SATA600/R/USB3.0/DVI/VGA A68X,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS A88X-Plus/USB3.1 GL/SATA600/R/USB3.0/DVI/HDMI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS A88XM-E USB 3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS A88XM-Plus GL/SATA600/R/USB3.0/DVI/HDMI/VGA A88X,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B150-PRO Gaming USB3.1/M.2/SATA600/HDMI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B150M-PRO Gaming USB3.0/M.2/SATA600/HDMI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B85-Plus (C2) GL/USB3.0/SATA600/R/DVI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B85M-E GL/USB3.0/SATA600/R/DVI/HDMI/VGA/DP B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B85M-G GL/USB3.0/SATA600/R/DVI/HDMI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B85M-G/USB3.1 SATA600/R/DVI/HDMI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS B85M-Gamer GL/USB3.0/SATA600/HDMI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS H110M-PLUS USB3.1/GL/SATA600/DVI/VGA/HDMI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS H170-PRO USB 3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS H81-Plus GL/USB3.0/SATA600/R/VGA/Parallel/Seriell H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS H81I-Plus GL/USB3.0/SATA600/HDMI/DVI/VGA H81 Mini-ITX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS M5A78L-M LE/USB3 GL/SATA300/DVI/VGA/Seriell 760G,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS M5A78L-M PLUS/USB3,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS M5A97 LE R2.0 GL/SATA600/R/USB3.0 AMD970,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS M5A97 R2.0 GL/SATA600/R/USB3.0 AMD970,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS M5A99X EVO R2.0 GL/SATA600/R/eSATA/USB3.0 AMD990X,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS P10S WS 2x GL/USB3.0/SATA600/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS P10S-V/4L 4x GL/USB3.0/SATA600/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Q87M -E USB3.0/SATA600/R/DVI/VGA/HDMI/DP Q87,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Q87T 2xGL/USB3.0/SATA600//DVI/HDMI/DP Q87 Mini-ITX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+"ASUS Rampage V Edition 10, Intel X99, RoG",ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+"ASUS Rampage V Extreme USB 3.1, Intel X99, RoG",ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Asus ROG RAMPAGE V EDITION 10,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS ROG Rampage VI APEX,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS ROG Rampage VI Extreme,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS ROG Rampage VI EXTREME ENCORE,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS ROG Rampage VI Extreme OMEGA,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Sabertooth 990FX R2.0 USB3.0/SATA600/R/eSATA 990FX,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Sabertooth MARK 2 USB 3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS SABERTOOTH Z170 S USB3.1/SATA600/SATAe/M.2/DP/HDMI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Trooper B85 GL/USB3.0/SATA600/DVI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Vanguard B85 GL/USB3.0/SATA600/R/DVI/HDMI/VGA/DP B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS X99-E WS USB 3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Z170-E USB3.1/M.2/SATAe/SATA600/DVI/HDMI Z170,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Z170-WS 2x GLAN/USB3.1/SATA600/M.2/DP/HDMI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+ASUS Z97-K USB 3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-78LMT-USB3 GL/SATA3/R/USB3.0/DVI/HDMI/VGA AMD 760G,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-970A-UD3P GL/SATA600/R/USB3.0 970,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-B150M-DS3P GL/USB3.1/M.2/HDMI/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-B150M-HD3 GL/USB3.0/M.2/HDMI/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H110M-DS2 GL/USB3.0/SATA600/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H81M-D2V GL/USB3.0/VGA/DVI H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H81M-HD3 GL/USB3.0/HDMI/DVI/DP H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H81M-S2PV GL/USB3.0/VGA/DVI H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-H97-D3H GL/USB3.0/HDMI/DVI/VGA H97,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-X150-PLUS WS GL/USB3.0/SATA600/SATAe/M.2 C232,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-X150M-PRO ECC GL/USB3.0/SATA600/SATAe/M.2 C232,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-X170-EXTREME ECC 2xGL/USB3.1/TB 3/SATAe/M.2 C236,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-Z170X-Gaming 7 2x GB-LAN/SATAe/M.2/USB3.1,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte GA-Z97M-D3H GL/USB3.0/HDMI/DVI/VGA Z97,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+Gigabyte MD70-HB1 3xGL/USB3.0/SATA600/Seriell C612 E- 2x,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI B150M ECO USB3.1/SATA600/HDMI/DVI/VGA B150,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI B150M Grenade USB3.1/HDMI/DVI/VGA/Turbo M.2 B150,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI B85-G43 GL/SATA600/R/USB3.0/HDMI/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI B85M-E45 GL/SATA600/USB3.0/HDMI/DVI/DP/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI B85M-G43 USB3.0/DP/HDMI/DVI/VGA B85,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI C236A Workstation USB3.1/M.2/DVI/HDMI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI C236M Workstation USB3.1/SATAe/DVI/HDMI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H110M ECO USB3.1/HDMI/DVI/VGA,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H110M Grenade USB3.1 (Typ C)/DVI/VGA/HDMI/M.2,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H110M Pro-D USB3.1/DVI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H110M Pro-VH USB3.1/VGA/HDMI,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H170 GAMING M3 USB3.1/HDMI/DVI/M.2/SATAe H170,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H170M Pro-VDH D3 USB3.1/SATAe/R/VGA/HDMI/DVI H170,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H81M-E33 GL/SATA600/USB3.0/HDMI/VGA H81,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI H97M-E35 GL/SATA600/R/USB3.0/HDMI/DVI/VGA H97,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+MSI Z170A Tomahawk USB3.1/DVI/HDMI/M.2/SATAe,peripheral_issue,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\MotherboardData.csv
+"Seasonic P-Series, Fanless 80 PLUS Platinum",overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Corsair AX1500i Digital ATX Power Supply,power_supply_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Corsair AX760i Digital ATX Power Supply,power_supply_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Corsair HX1000i High-Performance ATX Power Supply,power_supply_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Corsair HX750i High-Performance ATX Power Supply,power_supply_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Corsair HX850i High-Performance ATX Power Supply,power_supply_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Enermax Digifanless digitales,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Platinum 460 Fanless,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Platinum 520 Fanless,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Prime Fanless 80 PLUS Titanium,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Prime Fanless PX,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Prime Fanless PX,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic Prime Fanless TX,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Seasonic PRIME Fanless TX-600,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Silentmaxx Fanless II,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Berlin,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Cologne,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Frankfurt,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Hamburg,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake London,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Madrid,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Munich,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Paris,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Rome,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Smart Pro RGB 80Plus Bronze modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Smart Pro RGB 80Plus Bronze modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Smart Pro RGB 80Plus Bronze modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Smart SE,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Smart SE,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower DPS G 80 PLUS Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower DPS G RGB 80Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower DPS G RGB 80Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower DPS G RGB 80Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower GF1 A-RGB 80 Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower GF1 A-RGB 80 Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower GF1 A-RGB 80 Plus Gold,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower Grand RGB 80 PLUS Gold modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower Grand RGB 80 PLUS Gold modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower Grand RGB 80 PLUS Gold modular,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower iRGB 80 PLUS Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower iRGB 80 PLUS Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower iRGB 80 PLUS Titanium,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower PF1 A-RGB 80 Plus Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower PF1 A-RGB 80 Plus Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake Toughpower PF1 A-RGB 80 Plus Platinum,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake TR2 S,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake TR2 S,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Thermaltake TR2 S 80 PLUS,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+XFX XTS Fanless Series,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+XFX XTS Fanless Series,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\PSUData.csv
+Gigabyte Aorus RGB Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Aorus RGB Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+INNO3D iChill Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+INNO3D iChill Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Kingston ValueRAM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Kingston ValueRAM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Thermaltake Toughram RGB DDR4-3200 CL16 - 16 GB Dual-Kit,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Thermaltake Toughram RGB DDR4-3600 CL18 - 16 GB Dual-Kit,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 1GB DDR Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 1GB DDR Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 1GB DDR2 Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 1GB DDR2 Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 1GB Dual Channel DDR Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 2GB DDR2 Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 2GB Dual Channel DDR Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 2GB Dual Channel DDR2 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile Blue — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile Blue — 4GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile Blue — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile White — 1.35V 8GB Dual Channel DDR3L Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 32GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 32GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 4GB DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 4GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 8GB DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Low Profile — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair LP Memory 16GB 1866MHz CL10 DDR3,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair LP Memory 32GB 1866MHz CL10 DDR3 Dual/Quad Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair Memory — 32GB 1866MHz CL9 DDR3,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair SO-Dimm Vengeance Series DDR4-3000,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 12GB Triple Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 16GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 24GB Triple Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 32GB Dual/Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 4GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 4GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 4GB Single Module DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 4GB Single Module DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 64GB Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 64GB Quad Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB 1.5V Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Corsair — 8GB Dual Channel DDR3 Memory Kit,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Aorus RGB Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Aorus RGB Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Aorus RGB Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Gigabyte Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+INNO3D iChill Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Kingston Server DIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+"Kingston Server DIMM, ECC REG, DDR4-2133, CL15 - 32 GB Kit",ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Kingston Value DDR3-1333 CL9 Memory,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung RDIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung RDIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung RDIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung RDIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung RDIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Samsung Server DIMM,ram_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Thermaltake Toughram RGB DDR4-3000 CL16 - 16 GB Dual-Kit,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Thermaltake Toughram RGB DDR4-4000 CL19- 16 GB Dual-Kit,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Thermaltake Toughram RGB DDR4-4400 CL19- 16 GB Dual-Kit,overheating,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\RAMData.csv
+Kingston SSDNow UV400 Series 240 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow A400 Series 120 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow A400 Series 240 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow A400 Series 480 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow E50 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV400 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV400 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV400 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV500 Series 120 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV500 Series 240 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV500 Series 480 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow UV500 Series 960 GB,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow V300 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv
+Kingston SSDNow V300 Series,storage_failure,General Computer Hardware Dataset (Dilshaan Sandhu),computer_hardware\SSDData.csv

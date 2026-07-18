@@ -1,0 +1,432 @@
+{
+  "power_supply_failure": {
+    "label": "Power Supply Unit (PSU) Failure",
+    "keywords": ["wont turn on", "won't turn on", "no power", "not powering", "no lights", "no fans",
+      "power button", "no beeps", "burning smell", "circuit breaker", "wont charge", "won't charge",
+      "no power at all", "not turning on"],
+    "causes": [
+      "Faulty or dead power supply unit (PSU)",
+      "Loose or damaged power cable",
+      "Tripped/failed wall outlet or surge protector",
+      "Faulty power button or front-panel connector",
+      "Short circuit on the motherboard"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "any_lights",
+        "prompt": "When you press the power button, do you see any lights, hear any fans spin, or hear any beeps at all, even briefly?",
+        "purpose": "Distinguishes total dead-PSU from a downstream fault (e.g. boot failure after POST)."
+      },
+      {
+        "id": "checked_outlet",
+        "prompt": "Have you already tried a different wall outlet or power cable?",
+        "purpose": "Rules out the most common false-positive: a dead outlet or cable, not the PSU itself."
+      },
+      {
+        "id": "laptop_or_desktop",
+        "prompt": "Is this a laptop or a desktop?",
+        "purpose": "Branches the repair steps (battery/charger checks vs PSU swap)."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Check that the power cable is firmly connected to both the PSU (or charger) and the wall outlet.", "check_prompt": "Did reseating the cable bring any sign of power back?"},
+      {"step": "Test the wall outlet with another device, or try a different outlet/cable entirely.", "check_prompt": "Does the system power on with a different outlet or cable?"},
+      {"step": "Listen and look closely for any fan movement, lights, or beep codes when you press the power button.", "check_prompt": "Did you notice any fan movement, light, or beep this time?"},
+      {"step": "If you have a spare PSU or charger, swap it in to test — this is the most reliable diagnostic step.", "check_prompt": "Did the system power on with the replacement PSU/charger?"},
+      {"step": "Inspect the motherboard for swollen capacitors, burnt components, or a burning smell (desktop only).", "check_prompt": "Did you find any visible damage or smell anything burnt?"},
+      {"step": "If none of the above resolves it, the PSU, charger, or motherboard likely needs professional replacement.", "check_prompt": null}
+    ],
+    "severity": "high",
+    "confidence_base": 0.9
+  },
+  "overheating": {
+    "label": "Overheating / Thermal Management Issue",
+    "keywords": ["overheating", "too hot", "thermal", "high temperature", "fan loud", "hot to touch",
+      "throttle", "shuts down because", "shuts off because", "hot and shuts", "overheat",
+      "feels hot", "really hot", "feels really hot", "very hot", "gets hot", "warm to touch"],
+    "causes": [
+      "Dust buildup blocking fans/heatsinks",
+      "Dried-out or degraded thermal paste on the CPU/GPU",
+      "Blocked or insufficient case airflow",
+      "Failing or stopped cooling fan",
+      "Running demanding tasks in a hot/poorly ventilated environment"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "when_overheats",
+        "prompt": "Does this happen only during heavy tasks like gaming or video editing, or even when the system is mostly idle?",
+        "purpose": "Idle overheating points to a stuck fan or failed thermal paste; load-only points to airflow/dust."
+      },
+      {
+        "id": "last_cleaned",
+        "prompt": "Roughly how long has it been since the inside (or vents, for a laptop) was last cleaned of dust?",
+        "purpose": "Establishes whether dust buildup is a likely root cause."
+      },
+      {
+        "id": "age",
+        "prompt": "Roughly how old is the system?",
+        "purpose": "Older systems are more likely to need a thermal paste replacement."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Power off and unplug the system, then clean dust from vents, fans, and heatsinks with compressed air.", "check_prompt": "After cleaning, does the system run cooler or is the fan noise reduced?"},
+      {"step": "Ensure the case has clear airflow and is not placed against a wall or on a soft surface (e.g. a bed).", "check_prompt": "Did relocating it to a more open space help?"},
+      {"step": "Check that all case/CPU fans are spinning freely; replace any that are stuck or noisy.", "check_prompt": "Are all fans now spinning freely?"},
+      {"step": "Monitor temperatures using a tool such as HWMonitor or Core Temp while under load.", "check_prompt": "What temperatures are you seeing at idle and under load?"},
+      {"step": "If temperatures remain high, reapply thermal paste on the CPU/GPU (for advanced users) or consult a technician.", "check_prompt": "Were you able to reapply thermal paste, and did it lower temperatures?"},
+      {"step": "Consider adding case fans or improving room ventilation for long-term relief.", "check_prompt": null}
+    ],
+    "severity": "medium",
+    "confidence_base": 0.85
+  },
+  "ram_failure": {
+    "label": "RAM (Memory) Failure",
+    "keywords": ["blue screen", "bsod", "memory error", "beep code", "beeps", "memtest", "irql", "random crash", "memory_management"],
+    "causes": [
+      "Faulty or failing RAM module",
+      "RAM not seated properly in the slot",
+      "Incompatible RAM speed/voltage for the motherboard",
+      "Corrupted system files caused by repeated memory errors"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "recent_ram_change",
+        "prompt": "Did this start right after you installed new RAM, or after any other hardware change?",
+        "purpose": "A fault that started right after a RAM change points strongly to seating or compatibility."
+      },
+      {
+        "id": "error_pattern",
+        "prompt": "Does it crash at random times, or only during specific tasks (e.g. gaming, multitasking)?",
+        "purpose": "Random crashes anywhere point to RAM; task-specific crashes may point elsewhere (e.g. GPU)."
+      },
+      {
+        "id": "num_sticks",
+        "prompt": "How many RAM sticks are currently installed?",
+        "purpose": "Determines whether a one-at-a-time isolation test is possible."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Power off the PC, then reseat each RAM module firmly in its slot.", "check_prompt": "After reseating, does the system boot and run normally?"},
+      {"step": "If you have multiple RAM sticks, test them one at a time to isolate a faulty module.", "check_prompt": "Did the crashes stop with a specific stick removed?"},
+      {"step": "Run Windows Memory Diagnostic or MemTest86 to scan for memory errors.", "check_prompt": "Did the memory test report any errors?"},
+      {"step": "Check the motherboard manual to confirm the RAM is in a supported slot and at a supported speed.", "check_prompt": "Is the RAM installed in the recommended slots at a supported speed?"},
+      {"step": "If a faulty module is identified, replace it with a compatible RAM stick.", "check_prompt": "After replacing the module, does the issue persist?"},
+      {"step": "Re-run the memory test after replacing/reseating to confirm the fault is resolved.", "check_prompt": null}
+    ],
+    "severity": "high",
+    "confidence_base": 0.88
+  },
+  "storage_failure": {
+    "label": "Storage Device (HDD/SSD) Failure",
+    "keywords": ["hard drive", "hard disk", "ssd", "boot device", "disk boot failure", "clicking noise",
+      "grinding noise", "smart status", "raw file system", "operating system not found", "disk not detected"],
+    "causes": [
+      "Failing or dying hard disk drive (mechanical wear)",
+      "Loose SATA/power cable connection",
+      "Corrupted file system or boot sector",
+      "Bad sectors developing on the drive",
+      "Drive nearing end of its operational lifespan"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "any_sound",
+        "prompt": "Do you hear any clicking, grinding, or repetitive sounds from the drive?",
+        "purpose": "Mechanical noise is a strong, urgent signal of physical HDD failure — changes the advice priority to back up immediately."
+      },
+      {
+        "id": "hdd_or_ssd",
+        "prompt": "Is this a traditional hard disk drive (HDD) or a solid-state drive (SSD)?",
+        "purpose": "SSDs don't make mechanical noise and fail differently — affects which steps are relevant."
+      },
+      {
+        "id": "data_priority",
+        "prompt": "Is there important data on this drive that hasn't been backed up yet?",
+        "purpose": "If yes, back-up steps take priority before any repair attempt that could risk further data loss."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Back up any important data immediately if the drive is still accessible.", "check_prompt": "Were you able to back up your important files?"},
+      {"step": "Check that SATA/power cables are firmly connected (for desktops).", "check_prompt": "After reseating the cables, is the drive detected normally?"},
+      {"step": "Check the drive's S.M.A.R.T. status using a tool such as CrystalDiskInfo.", "check_prompt": "What does the S.M.A.R.T. status report — Good, Caution, or Bad?"},
+      {"step": "Run 'chkdsk /f /r' (Windows) to scan and attempt to repair file system errors.", "check_prompt": "Did chkdsk find and fix any errors?"},
+      {"step": "If you hear clicking or grinding noises, stop using the drive immediately — this indicates mechanical failure.", "check_prompt": null},
+      {"step": "Replace the drive and restore from backup if the fault is confirmed.", "check_prompt": null}
+    ],
+    "severity": "high",
+    "confidence_base": 0.87
+  },
+  "display_gpu_failure": {
+    "label": "Display / Graphics Card (GPU) Failure",
+    "keywords": ["no signal", "monitor", "screen", "display", "graphics card", "gpu", "artifacts",
+      "flicker", "black screen", "driver has stopped responding", "horizontal lines"],
+    "causes": [
+      "Loose or faulty video cable (HDMI/DisplayPort/VGA)",
+      "Outdated or corrupted graphics driver",
+      "Failing graphics card (GPU)",
+      "Monitor hardware fault",
+      "Incorrect display input source selected"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "when_started",
+        "prompt": "Did this start after a driver update, a new game/app install, or did it happen suddenly with no clear trigger?",
+        "purpose": "A trigger event narrows the cause toward software (driver) vs hardware (GPU/cable)."
+      },
+      {
+        "id": "other_monitor",
+        "prompt": "Have you tried a different monitor or a different cable/port?",
+        "purpose": "The fastest way to separate a monitor fault from a GPU/laptop fault."
+      },
+      {
+        "id": "dedicated_gpu",
+        "prompt": "Does your system have a separate graphics card, or does it use the built-in graphics on the CPU?",
+        "purpose": "Determines whether reseating/testing a dedicated GPU is even applicable."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Check that the video cable is firmly connected at both the GPU/laptop and the monitor.", "check_prompt": "After reseating the cable, do you get a picture?"},
+      {"step": "Try a different video cable or port (e.g. switch from HDMI to DisplayPort).", "check_prompt": "Does a different cable or port fix the display?"},
+      {"step": "Confirm the monitor is set to the correct input source.", "check_prompt": "Was the input source set incorrectly?"},
+      {"step": "Update or reinstall the graphics driver from the manufacturer's website (NVIDIA/AMD/Intel).", "check_prompt": "After updating the driver, is the display behaving normally?"},
+      {"step": "Test the monitor with another device to rule out a monitor fault.", "check_prompt": "Does the monitor work correctly with another device?"},
+      {"step": "If using a dedicated GPU, reseat it in its PCIe slot, or test with onboard graphics if available.", "check_prompt": "Did reseating the GPU or switching to onboard graphics resolve it?"}
+    ],
+    "severity": "medium",
+    "confidence_base": 0.83
+  },
+  "peripheral_issue": {
+    "label": "Peripheral Device Issue",
+    "keywords": ["keyboard", "mouse", "usb", "printer", "bluetooth", "webcam", "speaker", "headphone",
+      "microphone", "touchpad", "hdmi port", "external drive not recognized"],
+    "causes": [
+      "Loose or faulty cable/connector",
+      "Outdated or missing device driver",
+      "Disabled device in Device Manager",
+      "Faulty USB port or peripheral hardware",
+      "Bluetooth/wireless pairing issue"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "device_type",
+        "prompt": "What's the exact device giving you trouble, and is it wired or wireless/Bluetooth?",
+        "purpose": "Wireless issues need pairing-focused steps; wired issues need port/cable-focused steps."
+      },
+      {
+        "id": "worked_before",
+        "prompt": "Did this device work before, or has it never worked on this computer?",
+        "purpose": "A regression points to drivers/settings; never-worked points to compatibility or a dead unit."
+      },
+      {
+        "id": "tested_elsewhere",
+        "prompt": "Have you tried this device on another computer or in a different port?",
+        "purpose": "Fastest way to isolate device fault vs port/system fault."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Unplug the device and plug it into a different port.", "check_prompt": "Does it work in a different port?"},
+      {"step": "Test the device on another computer to confirm whether the device itself is faulty.", "check_prompt": "Did it work on the other computer?"},
+      {"step": "Open Device Manager and check for a yellow warning icon next to the device; update or reinstall its driver.", "check_prompt": "Was there a warning icon, and did updating the driver help?"},
+      {"step": "For wireless devices, remove the existing Bluetooth pairing and re-pair the device.", "check_prompt": "Did re-pairing fix the connection?"},
+      {"step": "Restart the computer after reconnecting the device.", "check_prompt": "Did the restart resolve it?"},
+      {"step": "If the issue persists, the device or the port hardware may need replacement.", "check_prompt": null}
+    ],
+    "severity": "low",
+    "confidence_base": 0.8
+  },
+  "boot_recovery_issue": {
+    "label": "Boot / OS Recovery Issue",
+    "keywords": [
+      "operating system not found",
+      "no operating system was found",
+      "operating system was found",
+      "sure recover",
+      "reinstall the operating system",
+      "content key",
+      "boot device not found",
+      "startup repair",
+      "restore from network",
+      "restore from local drive",
+      "press f11",
+      "press esc",
+      "recovery screen",
+      "boot order",
+      "windows wont start",
+      "windows won't start"
+    ],
+    "causes": [
+      "Missing or corrupted bootloader / system partition",
+      "Wrong BIOS boot order or boot mode",
+      "Drive not detected or failing",
+      "Interrupted Windows update or recovery process",
+      "HP recovery environment / Sure Recover workflow was triggered"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "started_after_change",
+        "prompt": "Did this start after a power loss, update, repair attempt, or drive replacement?",
+        "purpose": "Helps distinguish corrupted boot files from a drive that is physically failing."
+      },
+      {
+        "id": "bios_detects_drive",
+        "prompt": "When you enter BIOS/UEFI setup, does the storage drive still appear in the boot or storage list?",
+        "purpose": "If the drive is missing, the issue is more likely storage hardware than Windows itself."
+      },
+      {
+        "id": "backup_needed",
+        "prompt": "Is there important data on the device that you need to preserve before recovery or reinstalling Windows?",
+        "purpose": "Determines whether we should prioritize backup steps before any repair or reset."
+      }
+    ],
+    "solution_steps": [
+      {"step": "If possible, back up important files first before any reset or reinstall.", "check_prompt": "Were you able to back up the important files?"},
+      {"step": "Restart and enter BIOS/UEFI setup to confirm the storage drive is detected and the boot order is correct.", "check_prompt": "Is the drive detected in BIOS and set first in the boot order?"},
+      {"step": "If the screen is an HP Sure Recover screen, press ESC to cancel if you only want to stop the recovery prompt, or follow the on-screen F11 recovery path if you intend to reinstall.", "check_prompt": "Did ESC cancel the prompt, or did F11 take you to recovery options?"},
+      {"step": "Use Windows Startup Repair or the HP recovery option for your model to repair the boot process.", "check_prompt": "Did Startup Repair or recovery complete successfully?"},
+      {"step": "If Windows still will not start, reinstall Windows using the recovery media or HP recovery workflow.", "check_prompt": "After reinstalling, does the computer boot normally?"},
+      {"step": "If the drive is missing or fails diagnostics, replace the storage device before reinstalling Windows.", "check_prompt": null}
+    ],
+    "severity": "high",
+    "confidence_base": 0.9
+  },
+  "bios_firmware_issue": {
+    "label": "BIOS / UEFI Firmware Issue",
+    "keywords": [
+      "bios",
+      "uefi",
+      "firmware",
+      "secure boot",
+      "boot mode",
+      "f10",
+      "restore defaults",
+      "reset bios",
+      "update bios",
+      "cmos",
+      "legacy mode",
+      "sata mode",
+      "post"
+    ],
+    "causes": [
+      "Incorrect boot order or boot mode",
+      "Corrupted BIOS settings",
+      "Firmware incompatibility after a hardware change",
+      "Secure Boot or legacy mode mismatch",
+      "Outdated BIOS firmware"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "bios_change",
+        "prompt": "Did the issue start after changing a BIOS setting, updating firmware, or installing new hardware?",
+        "purpose": "Points directly to a BIOS/UEFI configuration problem."
+      },
+      {
+        "id": "can_enter_bios",
+        "prompt": "Can you enter BIOS/UEFI setup successfully using the vendor key (often F10, F2, or Del)?",
+        "purpose": "Shows whether the problem is before Windows even starts."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Enter BIOS/UEFI setup and load the default settings.", "check_prompt": "Did loading BIOS defaults change anything?"},
+      {"step": "Verify that the correct boot order, boot mode, Secure Boot, and storage mode are selected for your system.", "check_prompt": "Are the boot and security settings correct now?"},
+      {"step": "If available, update the BIOS/UEFI firmware from the manufacturer's support page.", "check_prompt": "Did the BIOS update finish successfully?"},
+      {"step": "If the machine will not boot after a setting change, revert the last BIOS change you made.", "check_prompt": "Did reverting the setting restore normal boot?"},
+      {"step": "If you are not comfortable with firmware changes, ask a technician to apply the update safely.", "check_prompt": null}
+    ],
+    "severity": "high",
+    "confidence_base": 0.88
+  },
+  "driver_issue": {
+    "label": "Driver / Device Software Issue",
+    "keywords": [
+      "driver",
+      "device manager",
+      "rollback driver",
+      "update driver",
+      "reinstall driver",
+      "after update",
+      "blue screen after update",
+      "graphics driver",
+      "audio driver",
+      "network driver",
+      "printer driver",
+      "usb driver",
+      "driver conflict",
+      "device not working after update"
+    ],
+    "causes": [
+      "Corrupted or incompatible driver",
+      "Windows Update replaced a working driver",
+      "Driver conflict after new hardware or software installation",
+      "Missing vendor-specific driver",
+      "Device Manager configuration issue"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "after_update",
+        "prompt": "Did the problem begin after a Windows update, driver update, or new hardware/software installation?",
+        "purpose": "A recent update or install strongly suggests a driver/software cause."
+      },
+      {
+        "id": "device_specific",
+        "prompt": "Is the issue affecting one specific device or the entire system?",
+        "purpose": "Helps separate a broken driver from a system-wide OS failure."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Open Device Manager and check for warning icons or unknown devices.", "check_prompt": "Did Device Manager show a warning icon or unknown device?"},
+      {"step": "Rollback the driver if the issue started immediately after an update.", "check_prompt": "Did rolling back the driver help?"},
+      {"step": "Uninstall the device and reinstall the latest driver from the manufacturer’s support page.", "check_prompt": "After reinstalling the driver, does the device work correctly?"},
+      {"step": "Run Windows Update and install optional driver updates if offered.", "check_prompt": "Did Windows Update offer a better driver?"},
+      {"step": "If the problem persists, check the vendor support article for known compatibility issues.", "check_prompt": null}
+    ],
+    "severity": "medium",
+    "confidence_base": 0.84
+  },
+  "application_issue": {
+    "label": "Application / Software Issue",
+    "keywords": [
+      "app crash",
+      "application crash",
+      "not responding",
+      "freezes",
+      "program wont open",
+      "program won't open",
+      "software bug",
+      "error message",
+      "launch fails",
+      "installation corrupted",
+      "app closes immediately",
+      "after install",
+      "browser crash",
+      "office crash",
+      "game crash"
+    ],
+    "causes": [
+      "Corrupted application installation",
+      "Incompatible app version or missing runtime",
+      "Damaged cache or user profile",
+      "Conflict with another program or plugin",
+      "OS update changed app behavior"
+    ],
+    "clarifying_questions": [
+      {
+        "id": "app_name",
+        "prompt": "What app or program is failing, and does it fail at launch or only after you use it for a while?",
+        "purpose": "Identifies whether the app itself or a workflow inside it is failing."
+      },
+      {
+        "id": "after_change",
+        "prompt": "Did this start after an update, install, or plugin/change to the app?",
+        "purpose": "Recent changes often point to a corrupted install or a compatibility issue."
+      }
+    ],
+    "solution_steps": [
+      {"step": "Close the app completely and launch it again.", "check_prompt": "Did restarting the app fix the issue?"},
+      {"step": "Clear the app cache or reset the app settings if the program supports it.", "check_prompt": "Did clearing the cache or resetting settings help?"},
+      {"step": "Repair or reinstall the application from its official installer.", "check_prompt": "After repair or reinstall, does the app open normally?"},
+      {"step": "Update the app and any required runtime packages such as .NET or Visual C++ redistributables.", "check_prompt": "Did updating the app and runtimes resolve it?"},
+      {"step": "Check the app's official help page or release notes for known bugs.", "check_prompt": null}
+    ],
+    "severity": "low",
+    "confidence_base": 0.82
+  }
+}

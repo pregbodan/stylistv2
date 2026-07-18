@@ -1,0 +1,101 @@
+text,fault_category
+"my computer wont turn on at all",power_supply_failure
+"system does not power on and the power led is off",power_supply_failure
+"pc has no power not even fans spinning",power_supply_failure
+"i press the power button and nothing happens",power_supply_failure
+"computer randomly shuts down during use",power_supply_failure
+"system shuts off when i plug in a peripheral",power_supply_failure
+"burning smell coming from the power supply",power_supply_failure
+"pc turns on for a second then shuts off",power_supply_failure
+"no lights no fans no beeps when i power on",power_supply_failure
+"power supply fan is not spinning",power_supply_failure
+"system powers on then immediately powers off",power_supply_failure
+"my desktop keeps losing power intermittently",power_supply_failure
+"computer clicks once and then nothing happens",power_supply_failure
+"laptop wont charge and wont turn on",power_supply_failure
+"pc trips the circuit breaker when turned on",power_supply_failure
+"my pc is overheating and shutting down",overheating
+"laptop fan is very loud and the system is hot",overheating
+"computer freezes after running for a while and feels hot",overheating
+"cpu temperature is very high according to bios",overheating
+"system throttles performance under load due to heat",overheating
+"fans are spinning fast but the laptop is still very hot",overheating
+"pc shuts down during gaming because of high temperature",overheating
+"thermal shutdown error message appeared",overheating
+"the heatsink feels extremely hot to touch",overheating
+"computer is hot and makes a burning smell after an hour",overheating
+"gpu temperature spikes and the screen freezes",overheating
+"laptop bottom is too hot and performance drops",overheating
+"cooling fan stopped spinning and system overheated",overheating
+"my pc keeps overheating even with fans running",overheating
+"system restarts due to thermal protection",overheating
+"i am getting a blue screen of death frequently",ram_failure
+"computer crashes randomly with blue screen errors",ram_failure
+"pc fails to boot and beeps multiple times",ram_failure
+"memory test shows errors in windows memory diagnostic",ram_failure
+"system freezes randomly during normal use",ram_failure
+"computer restarts unexpectedly with bsod",ram_failure
+"i added new ram and now the pc wont boot",ram_failure
+"applications crash randomly with memory errors",ram_failure
+"the motherboard is beeping in a repeating pattern at startup",ram_failure
+"system fails memtest86 with multiple errors",ram_failure
+"random bsod with memory_management error code",ram_failure
+"pc was working fine but now crashes with random errors",ram_failure
+"computer shows blue screen irql not less or equal",ram_failure
+"i hear beep codes when starting the computer",ram_failure
+"games crash to desktop with memory access violation",ram_failure
+"my hard drive is making clicking noises",storage_failure
+"windows cannot find the boot device",storage_failure
+"system says disk boot failure insert system disk",storage_failure
+"files are corrupting and disappearing randomly",storage_failure
+"hard drive is not detected in bios",storage_failure
+"computer is extremely slow to boot and open files",storage_failure
+"ssd is not showing up in disk management",storage_failure
+"i hear grinding noises from the hard disk",storage_failure
+"smart status failure warning appeared",storage_failure
+"drive shows raw file system and is not accessible",storage_failure
+"pc freezes whenever i try to copy large files",storage_failure
+"operating system not found error on startup",storage_failure
+"hard drive disconnects randomly while in use",storage_failure
+"disk is making a clicking sound and the pc wont boot",storage_failure
+"storage device fails to initialize",storage_failure
+"my monitor shows no signal even though pc is on",display_gpu_failure
+"screen has artifacts and strange colors",display_gpu_failure
+"display goes black randomly during use",display_gpu_failure
+"graphics card fan is spinning but no display output",display_gpu_failure
+"monitor flickers constantly",display_gpu_failure
+"i get a no signal message from my monitor",display_gpu_failure
+"screen shows horizontal lines and glitches",display_gpu_failure
+"games crash with graphics driver has stopped responding",display_gpu_failure
+"display resolution is stuck and wont change",display_gpu_failure
+"external monitor is not detected by laptop",display_gpu_failure
+"gpu fan spins but screen stays black on boot",display_gpu_failure
+"computer screen freezes with distorted graphics",display_gpu_failure
+"laptop screen is flickering and dim",display_gpu_failure
+"video output stopped working after a driver update",display_gpu_failure
+"monitor shows the wrong colors and artifacts",display_gpu_failure
+"keyboard is not typing some keys",peripheral_issue
+"mouse cursor is not moving on screen",peripheral_issue
+"usb devices are not being detected",peripheral_issue
+"printer is not responding when i try to print",peripheral_issue
+"bluetooth keyboard wont pair with my computer",peripheral_issue
+"webcam is not working in video calls",peripheral_issue
+"my usb ports stopped working suddenly",peripheral_issue
+"speakers are not producing any sound",peripheral_issue
+"headphones are not detected by the system",peripheral_issue
+"external hard drive is not recognized when plugged in",peripheral_issue
+"touchpad on my laptop has stopped responding",peripheral_issue
+"microphone is not picking up any audio",peripheral_issue
+"the keyboard backlight wont turn on and some keys stick",peripheral_issue
+"my wireless mouse keeps disconnecting",peripheral_issue
+"hdmi port is not outputting video",peripheral_issue
+"hello there",greeting
+"hi how are you",greeting
+"good morning",greeting
+"hey can you help me",greeting
+"is anyone there",greeting
+"thank you very much for the help",thanks
+"thanks that solved my problem",thanks
+"appreciate the assistance",thanks
+"goodbye and thanks",thanks
+"that fixed it thank you",thanks
