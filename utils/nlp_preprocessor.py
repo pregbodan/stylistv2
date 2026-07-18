@@ -11,9 +11,25 @@ plain string match.
 
 import re
 import string
+import nltk
+
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+
+# Download required NLTK resources if missing
+required_resources = {
+    "corpora/stopwords": "stopwords",
+    "tokenizers/punkt": "punkt",
+    "corpora/wordnet": "wordnet",
+    "corpora/omw-1.4": "omw-1.4",
+}
+
+for resource_path, package_name in required_resources.items():
+    try:
+        nltk.data.find(resource_path)
+    except LookupError:
+        nltk.download(package_name, quiet=True)
 
 _lemmatizer = WordNetLemmatizer()
 _stopwords = set(stopwords.words("english"))
